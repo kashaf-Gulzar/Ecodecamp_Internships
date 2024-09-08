@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Haven Essential</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://t4.ftcdn.net/jpg/09/10/78/29/360_F_910782958_LjcHXIpM0Eh8CSRCJD3bM3JS6KOompU0.jpg");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .review-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-title {
+            font-size: 24px;
+            color: #9F2B68;
+            margin-bottom: 15px;
+        }
+
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .review-form input,
+        .review-form textarea,
+        .review-form select {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #fff;
+        }
+
+        .rating-label {
+            font-size: 14px;
+            color: #9F2B68;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .submit-review-btn {
+            padding: 10px;
+            border: none;
+            background-color: #9F2B68;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-review-btn:hover {
+            background-color: #5b1846;
+        }
+
+        .success-message {
+            color:  #9F2B68;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .review-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 100%;
+        }
+
+        .review-card h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #9F2B68;
+        }
+
+        .stars {
+            color:  #9F2B68;
+        }
+
+        .date {
+            font-size: 12px;
+            color:#9F2B68;
+        }
+        /* Style the select element with a purple border on hover */
+.review-form select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #9F2B68; /* Text color */
+   
+}
+
+/* Change the border and background color on hover */
+.review-form select:hover {
+    border-color: #9F2B68; /* Change border to purple on hover */
+    background-color: rgba(159, 43, 104, 0.1); /* Light purple background */
+    color: #9F2B68;
+}
+
+/* Adjust the dropdown arrow style */
+.review-form select option {
+    color: #9F2B68; /* Set the text color of options to purple */
+}
+
+    </style>
+</head>
+<body>
+    <section class="review-section">
+        <h2 class="review-title">Write a Review</h2>
+        <form id="reviewForm" class="review-form">
+
+            <input type="text" id="reviewerName" placeholder="Your Name" required>
+            <input type="text" id="reviewerName" placeholder="Product Name" required>
+            <textarea id="reviewText" placeholder="Write your review here..." required></textarea>
+            <label for="rating" class="rating-label">Rating:</label>
+            <select id="rating" class="rating-select" required>
+                <option value="5">★★★★★</option>
+                <option value="4">★★★★</option>
+                <option value="3">★★★</option>
+                <option value="2">★★</option>
+                <option value="1">★</option>
+            </select>
+            <button type="submit" class="submit-review-btn">Submit Review</button>
+        </form>
+        <div id="successMessage" class="success-message" style="display: none;">
+            Review submitted successfully!
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Retrieve form values
+            const name = document.getElementById('reviewerName').value;
+            const reviewText = document.getElementById('reviewText').value;
+            const rating = document.getElementById('rating').value;
+
+            // Create a review card dynamically
+            const reviewCard = document.createElement('div');
+            reviewCard.classList.add('review-card');
+            reviewCard.innerHTML = `
+                <h3>${name}</h3>
+                <div class="stars">${'★'.repeat(rating)}</div>
+                <p>${reviewText}</p>
+                <div class="date">Just now</div>
+            `;
+
+           
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+
+            // Clear form fields
+            document.getElementById('reviewerName').value = '';
+            document.getElementById('reviewText').value = '';
+            document.getElementById('rating').value = '5';
+
+            // Redirect back to index.html after displaying success message
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+                window.location.href = 'index.html'; // Redirects to index.html after 3 seconds
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

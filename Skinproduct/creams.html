@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Haven Essentials</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="skincare.css">
+</head>
+<style>
+    .heading1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .heading1 h1 {
+        color: #9F2B68;
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .cart {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    background-color: white;
+    border-left: 10px solid; /* Adjust thickness as needed */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: borderColorChange 3s linear infinite;
+}
+
+/* Keyframes for border color animation */
+@keyframes borderColorChange {
+    0% {
+        border-left-color: #9F2B68; /* Start color */
+    }
+    25% {
+        border-left-color: #c02176; /* Gold color */
+    }
+    50% {
+        border-left-color:#da3a8f; /* Deep Sky Blue color */
+    }
+    75% {
+        border-left-color: #752e54; /* Lime Green color */
+    }
+    100% {
+        border-left-color: #4b1331; /* End color */
+    }
+}
+
+
+    .cart img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    .cart ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .cart ul li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .cart .total {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .cart-btn {
+        background-color: #ce498f;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+    }
+
+    .delete-item {
+        cursor: pointer;
+        color:  #9F2B68;
+    }
+
+    .cart-toggle {
+        cursor: pointer;
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        background-color: #9F2B68;
+        color: white;
+        z-index: 1001;
+        border-radius: 5px 0 0 5px;
+    }
+    /*------------------------------*/
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(159, 43, 104, 0.8); /* Corrected RGBA color */
+    padding-top: 60px;
+}
+    .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 20px;
+        border: 5px solid #9F2B68;
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .close {
+        color: #f1f1f1;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+<body>
+    
+    <header>
+        <div class="top-bar">
+            <p>Choose products that Supports your wellness and help  you feel GORGEOUS </p>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"><img src="https://glowhavenessentials.shop/cdn/shop/files/Glow_haven_Essentials_2.png?v=1713007857&width=500" alt="Glow Haven"></a> <!-- Replace with actual logo URL -->
+            </div>
+            <ul class="nav-right">
+                <li><a href="#">PKR</a></li>
+                <li><a href="#">Find a Professional </a></li>
+                <li><a href="#" id="view-cart">My Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+        <nav class="medium-bar">
+            <li><a href="index.html">Find my Routine</a></li>
+            <li><a href="skincare.html">Skin Care</a>
+                <div class="dropdown-content">
+                    <div>
+                        <a href="creams.html">Creams Cleanser & Lotions</a>
+                       
+                    </div>
+                    <div>
+                        <a href="Scrubs.html">Scrubs</a>
+                        <a href="moisturizing.html">Moisturizing Gel</a>
+                        <a href="Serum.html">Serum</a>
+                        <a href="vitamin.html">Vitamin C Range</a>
+                        <a href="toners.html">Toners & Tonics</a>
+                        <a href="soaps.html">Soaps</a>
+                        <a href="facemask.html">Face Masks</a>
+                        <a href="facewashes.html">Face washes</a>
+                        <a href="hairemoval.html">Hair Removal </a>
+                        <a href="antiaging.html">Anti-Aging Product</a>
+                        <a href="essential.html">Essentials & Body Oils</a>
+                    </div>
+                    
+                </div></li>
+            <li><a href="#">Hair Care</a>
+                <div class="dropdown-content">
+                    <div>
+                        <a href="naturaloils.html">Natural Oils</a>
+                       
+                    </div>
+                    <div>
+                        <a href="hairconditioner.html">Hair Conditioning Masks</a>
+                        <a href="naturalhair.html">Natural Hair Dyes</a>
+                        <a href="shampoo.html">Shampoo</a>
+                        <a href="hairgrowth.html">Hair Growth</a>
+                    </div>
+                    
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Fragrances</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Luxury Perfumes</h3>
+                        <a href="him.html">For Him</a>
+                        <a href="her.html">For Her</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Fragrances - Deals & Bundles</h3>
+                        <a href="deal.html">For Him</a>
+                        <a href="deal1.html">For Her</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Signature Perfumes</h3>
+                        <a href="perfume.html">Perfumes For Men</a>
+                        <a href="perfume1.html">Perfumes For Women</a>
+                    </div>
+                   
+                    
+                </div>
+            </li>
+            <li><a href="kit.html">Deal & Kit</a></li>
+            
+            <li><a href="addproduct.html">Add Product</a></li>
+            <li><a href="productdetail.html">New Products</a></li>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search products...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+    </header>
+    <div class="hero-image">
+        <div class="hero-text">
+            
+            <h1>Healthy Skin is a reflection of overall wellness</h1>
+            
+            
+        </div>
+    </div>
+   <div class="heading1">
+    <h1>Creams</h1>
+   </div>
+
+    <section class="products-section">
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/SPF_1_300x.jpg?v=1706099390">
+            <p class="product-description">Oil-Free Tinted Sunscreen with Niacinamide Serum</p>
+            <p class="product-price">Rs.700</p>
+            <button class="add-to-bag-button" data-name="Oil-Free Tinted Sunscreen with Niacinamide Serum" data-price="700" data-image="https://saeedghani.pk/cdn/shop/files/SPF_1_300x.jpg?v=1706099390">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/01_fba115e0-f191-4173-b87c-7b059190a490_1024x1024.jpg?v=1710232843">
+            <p class="product-description">Anti-Aging Retinol Night Cream</p>
+            <p class="product-price">Rs.800</p>
+            <button class="add-to-bag-button" data-name="Anti-Aging Retinol Night Cream" data-price="800" data-image="https://saeedghani.pk/cdn/shop/files/01_fba115e0-f191-4173-b87c-7b059190a490_1024x1024.jpg?v=1710232843">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/Sunblock_1024x1024.jpg?v=1707490414" alt="Hyaluronic Acid Serum" alt="Retinol Serum">
+            <p class="product-description">Sunblock SPF 60 with Vitamin C</p>
+            <p class="product-price">Rs.1250</p>
+            <button class="add-to-bag-button" data-name="Sunblock SPF 60 with Vitamin C" data-price="500" data-image="https://saeedghani.pk/cdn/shop/files/Sunblock_1024x1024.jpg?v=1707490414" alt="Sunblock SPF 60 with Vitamin C">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/Moisturizing-Cream_906dcf83-9670-4b05-b2b8-b0c6b0bf4eff_1024x1024.jpg?v=1707490657" alt="Tea Tree Serum">
+            <p class="product-description">Oil-Free Moisturizing Cream with Glycerin, Aloe Vera, & Vitamin E</p>
+            <p class="product-price">Rs.400</p>
+            <button class="add-to-bag-button" data-name="Oil-Free Moisturizing Cream with Glycerin, Aloe Vera, & Vitamin E" data-price="400" data-image="https://saeedghani.pk/cdn/shop/files/Moisturizing-Cream_906dcf83-9670-4b05-b2b8-b0c6b0bf4eff_1024x1024.jpg?v=1707490657">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/Vitamin-C-Cream_1024x1024.jpg?v=1707490532" alt="Serum Duo">
+            <p class="product-description">Vitamin C  Brighting & Anti-Aging Cream</p>
+            <p class="product-price">Rs.450</p>
+            <button class="add-to-bag-button" data-name="Vitamin C  Brighting & Anti-Aging Cream" data-price="450" data-image="https://saeedghani.pk/cdn/shop/files/Vitamin-C-Cream_1024x1024.jpg?v=1707490532">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/Lip-Balm-Web-2_1024x1024.jpg?v=1706859909" alt="Day & Night Duo">
+            <p class="product-description">Ultra Hydrating & Nourishing Lip Balm</p>
+            <p class="product-price">Rs.350</p>
+            <button class="add-to-bag-button" data-name="Ultra Hydrating & Nourishing Lip Balm" data-price="350" data-image="https://saeedghani.pk/cdn/shop/files/Lip-Balm-Web-2_1024x1024.jpg?v=1706859909">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/5Creamsatthepriceof4_300x.jpg?v=1706011088" alt="Bundles of 5 Cream at the Price of 4">
+            <p class="product-description">Bundles of 5 Cream at the Price of 4</p>
+            <p class="product-price">Rs.1997</p>
+            <button class="add-to-bag-button" data-name="Bundles of 5 Cream at the Price of 4" data-price="1997" data-image="https://saeedghani.pk/cdn/shop/files/5Creamsatthepriceof4_300x.jpg?v=1706011088">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/Footcarecream_1024x1024.jpg?v=1711118436" alt="Moisturizing Footcare Cream">
+            <p class="product-description">Moisturizing Footcare Cream</p>
+            <p class="product-price">Rs.300</p>
+            <button class="add-to-bag-button" data-name="Moisturizing Footcare Cream" data-price="300" data-image="https://saeedghani.pk/cdn/shop/files/Footcarecream_1024x1024.jpg?v=1711118436">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/Bundleof4Creamsatthepriceof3_197c5add-1210-4683-a34c-ab382cf13a46_300x.jpg?v=1704716672" alt="Bundles of 4 Creams at the Price of 3">
+            <p class="product-description">Bundles of 4 Creams at the Price of 3</p>
+            <p class="product-price">Rs.1360</p>
+            <button class="add-to-bag-button" data-name="Bundles of 4 Creams at the Price of 3" data-price="1360" data-image="https://saeedghani.pk/cdn/shop/files/Bundleof4Creamsatthepriceof3_197c5add-1210-4683-a34c-ab382cf13a46_300x.jpg?v=1704716672">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/FootandHandCream_1024x1024.jpg?v=1629876420" alt="Foot & Hand Cream">
+            <p class="product-description">Foot & Hand Cream</p>
+            <p class="product-price">Rs.450</p>
+            <button class="add-to-bag-button" data-name="Foot & Hand Cream" data-price="450" data-image="https://saeedghani.pk/cdn/shop/products/FootandHandCream_1024x1024.jpg?v=1629876420">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/SG-Square-7-min_1024x1024.jpg?v=1717506385 " alt="Husn-E-Yousaf Beauty Cream">
+            <p class="product-description">Husn-E-Yousaf Beauty Cream</p>
+            <p class="product-price">Rs.400</p>
+            <button class="add-to-bag-button" data-name="Husn-E-Yousaf Beauty Cream" data-price="400" data-image="https://saeedghani.pk/cdn/shop/products/SG-Square-7-min_1024x1024.jpg?v=1717506385 ">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/NO-CrackCream_300x.jpg?v=16394100390" alt="No Crack Foot Care Cream">
+            <p class="product-description">No Crack Foot Care Cream</p>
+            <p class="product-price">Rs.450</p>
+            <button class="add-to-bag-button" data-name="No Crack Foot Care Cream" data-price="450" data-image="https://saeedghani.pk/cdn/shop/products/NO-CrackCream_300x.jpg?v=1639410039">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/SandalCream85gm_300x.jpg?v=1622838134" alt="Sandal Beauty Cream">
+            <p class="product-description">Sandal Beauty Cream</p>
+            <p class="product-price">Rs.300</p>
+            <button class="add-to-bag-button" data-name="Sandal Beauty Cream" data-price="300" data-image="https://saeedghani.pk/cdn/shop/products/SandalCream85gm_300x.jpg?v=1622838134">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/DarkcircleCream_300x.jpg?v=1639202580" alt="Dark Circle Eye Cream">
+            <p class="product-description">Dark Circle Eye Cream</p>
+            <p class="product-price">Rs.350</p>
+            <button class="add-to-bag-button" data-name="Dark Circle Eye Cream" data-price="350" data-image="https://saeedghani.pk/cdn/shop/products/DarkcircleCream_300x.jpg?v=1639202580">Add to Bag</button>
+        </div>
+        
+
+    </section>
+    <div class="heading1">
+        <h1>Cleanser</h1>
+       </div>
+    <section class="products-section">
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/Goat-Milk-Face-Cleanser_1024x1024.jpg?v=1629807808">
+            <p class="product-description">Goat Milk Face Cleanser</p>
+            <p class="product-price">Rs.480</p>
+            <button class="add-to-bag-button" data-name="Goat Milk Face Cleanser" data-price="700" data-image="https://saeedghani.pk/cdn/shop/products/Goat-Milk-Face-Cleanser_1024x1024.jpg?v=1629807808">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/SkinPolishJar180gm_300x.jpg?v=1606298874">
+            <p class="product-description">Whitening Skin Polish</p>
+            <p class="product-price">Rs.450</p>
+            <button class="add-to-bag-button" data-name="Whitening Skin Polish" data-price="800" data-image="https://saeedghani.pk/cdn/shop/products/SkinPolishJar180gm_300x.jpg?v=1606298874">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/fruitepolish_1024x1024.jpg?v=1673262674" alt="Fruit Face Polish" alt="Fruit Face Polish">
+            <p class="product-description">Fruit Face Polish</p>
+            <p class="product-price">Rs.450</p>
+            <button class="add-to-bag-button" data-name="Fruit Face Polish" data-price="450" data-image="https://saeedghani.pk/cdn/shop/products/fruitepolish_1024x1024.jpg?v=1673262674" alt="Sunblock SPF 60 with Vitamin C">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/SG-Square-17-min_300x.jpg?v=1664193388" alt="Whitening Face Cleanser">
+            <p class="product-description">Whitening Face Cleanser</p>
+            <p class="product-price">Rs.450</p>
+            <button class="add-to-bag-button" data-name="Whitening Face Cleanser" data-price="450" data-image="https://saeedghani.pk/cdn/shop/products/SG-Square-17-min_300x.jpg?v=1664193388">Add to Bag</button>
+        </div>
+        </section>
+        <section>
+            <div class="heading1">
+                <h1>Lotions</h1>
+               </div>
+            <section class="products-section">
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/Vitamin-C-Lotion-100ml_300x.jpg?v=1643374679" alt="Vitamin C Extra Whitening Lotion">
+            <p class="product-description">Vitamin C Extra Whitening Lotion</p>
+            <p class="product-price">Rs.280</p>
+            <button class="add-to-bag-button" data-name="Vitamin C Extra Whitening Lotion" data-price="280" data-image="https://saeedghani.pk/cdn/shop/products/Vitamin-C-Lotion-100ml_300x.jpg?v=1643374679">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/PureGlycerine_300x.jpg?v=1622838133" alt="Pure Glycerin">
+            <p class="product-description">Pure Glycerin</p>
+            <p class="product-price">Rs.180</p>
+            <button class="add-to-bag-button" data-name="Pure Glycerin" data-price="180" data-image="https://saeedghani.pk/cdn/shop/products/PureGlycerine_300x.jpg?v=1622838133">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/HoneyandAlmondlotion_300x.jpg?v=1642580982" alt="Honey & Almonds Noursishing Body Lotion">
+            <p class="product-description">Honey & Almonds Noursishing Body Lotion</p>
+            <p class="product-price">Rs.280</p>
+            <button class="add-to-bag-button" data-name="Honey & Almonds Noursishing Body Lotion" data-price="280" data-image="https://saeedghani.pk/cdn/shop/products/HoneyandAlmondlotion_300x.jpg?v=1642580982">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/SheaButterLotion_5e6f36a1-5acd-46b4-a22b-72b57391c36d_300x.jpg?v=1673261872" alt="Shea Butter Whitening Body Lotion">
+            <p class="product-description">Shea Butter Whitening Body Lotion</p>
+            <p class="product-price">Rs.300</p>
+            <button class="add-to-bag-button" data-name="Shea Butter Whitening Body Lotion" data-price="300" data-image="https://saeedghani.pk/cdn/shop/products/SheaButterLotion_5e6f36a1-5acd-46b4-a22b-72b57391c36d_300x.jpg?v=1673261872">Add to Bag</button>
+        </div>
+        
+    </section>
+
+    <div class="cart-toggle">Cart</div>
+    <div class="cart" id="cart">
+        <h2>My Cart</h2>
+        <ul id="cart-items">
+            <!-- Items will be added here -->
+        </ul>
+        <p class="total">Total: Rs.<span id="cart-total">0</span></p>
+        <button class="cart-btn" id="checkout-btn">Checkout</button>
+    </div>
+   <div id="productAddedModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeProductAddedModal">&times;</span>
+            <h2>Success!</h2>
+            <p>Your product has been successfully added to the cart.</p>
+        </div>
+    </div>
+
+    <script>
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let cartTotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+        let cartItemCount = cartItems.length;
+        
+        function updateCart() {
+            const cartItemsList = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const cartCountElement = document.getElementById('cart-count');
+        
+            cartItemsList.innerHTML = '';
+        
+            cartItems.forEach((item, index) => {
+                const li = document.createElement('li');
+        
+                const img = document.createElement('img');
+                img.src = item.image;
+                li.appendChild(img);
+        
+                const itemInfo = document.createElement('span');
+                itemInfo.textContent = `${item.name} - Rs.${item.price}`;
+                li.appendChild(itemInfo);
+        
+                const deleteBtn = document.createElement('span');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add('delete-item');
+                deleteBtn.addEventListener('click', function() {
+                    cartTotal -= item.price;
+                    cartItemCount--;
+                    cartItems.splice(index, 1);
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Save updated cart
+                    updateCart();
+                });
+                li.appendChild(deleteBtn);
+        
+                cartItemsList.appendChild(li);
+            });
+        
+            cartTotalElement.textContent = cartTotal;
+            cartCountElement.textContent = cartItemCount;
+        }
+        
+        document.querySelectorAll('.add-to-bag-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = this.getAttribute('data-name');
+                const productPrice = parseInt(this.getAttribute('data-price'));
+                const productImage = this.getAttribute('data-image');
+        
+                cartItems.push({ name: productName, price: productPrice, image: productImage });
+        
+                cartItemCount++;
+                cartTotal += productPrice;
+        
+                localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Save cart to local storage
+        
+                updateCart();
+                const productAddedModal = document.getElementById('productAddedModal');
+    productAddedModal.style.display = 'block';
+    setTimeout(() => {
+        productAddedModal.style.display = 'none';
+    }, 2000);
+
+    document.getElementById('cart').style.display = 'block';
+                document.getElementById('cart').style.display = 'block';
+            });
+        });
+        
+        document.getElementById('view-cart').addEventListener('click', function() {
+            const cart = document.getElementById('cart');
+            cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        document.querySelector('.cart-toggle').addEventListener('click', function() {
+            const cart = document.getElementById('cart');
+            cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+        });
+        const searchInput = document.getElementById('search-input');
+const searchBtn = document.getElementById('search-btn');
+const productCards = document.querySelectorAll('.product-card');
+
+// Filter products as you type
+searchInput.addEventListener('input', function() {
+    const query = searchInput.value.toLowerCase();
+    let firstMatch = null;
+
+
+    productCards.forEach(card => {
+        const description = card.querySelector('.product-description').textContent.toLowerCase();
+        const button = card.querySelector('.add-to-bag-button');
+
+        // Show matching products
+        if (description.includes(query)) {
+            card.style.display = 'block';
+            if (!firstMatch) {
+                firstMatch = button; // Save the first matching button
+            }
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
+document.getElementById('cart').style.display = 'block';
+
+// Redirect on search button click or Enter press
+searchBtn.addEventListener('click', redirectToFirstMatch);
+searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        redirectToFirstMatch();
+    }
+});
+
+function redirectToFirstMatch() {
+    const query = searchInput.value.toLowerCase();
+    for (const card of productCards) {
+        const description = card.querySelector('.product-description').textContent.toLowerCase();
+        const button = card.querySelector('.add-to-bag-button');
+
+        if (description.includes(query)) {
+            window.location.href = button.getAttribute('data-url');
+            break;
+        }
+    }
+}
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            window.location.href = 'checkout.html'; // Redirect to the checkout page
+        });
+        
+        // Initialize cart
+        updateCart();
+
+
+    </script>
+
+</body>
+</html>

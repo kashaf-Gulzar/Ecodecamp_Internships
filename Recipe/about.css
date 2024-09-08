@@ -1,0 +1,480 @@
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body   {
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+}
+
+.top-bar {
+    background-color: #e4aa0a;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    padding: 10px 20px;
+    color: #f3eded;
+    font-size: 1rem;
+    position: relative;
+}
+
+#dynamic-text {
+    text-align: center;
+    font-weight: bold;
+    color: #f3eded;
+    animation: fadeInOut 4s ease-in-out infinite; /* Fade-in and out animation */
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    right: 10px; /* Position the icons on the right side */
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #f3eded;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #0d0e0f;
+}
+
+.auth-links .login,
+.auth-links .register {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.auth-links .register {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ce7c11;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links li {
+    position: relative; /* Necessary for positioning the dropdown */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color:  #ce7c11;
+}
+
+/* Dropdown Menu Styling */
+.dropdown .dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%; /* Aligns below the Categories link */
+    left: 0;
+    background-color: #ce7c11;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px; /* Ensures minimum width */
+}
+
+.dropdown .dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown .dropdown-menu a {
+    display: block;
+    padding: 8px 20px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown .dropdown-menu a:hover {
+    background-color: #e4aa0a;
+    color: #fff;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block; /* Displays the dropdown when hovering over Categories */
+}
+
+/* Icon Styling */
+.icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.icons .fa-heart,
+.icons .fa-search {
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.icons .fa-search {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.icons .fa-search:hover,
+.icons .fa-heart:hover {
+    color: #ce7c11;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #ce7c11;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: #0b0da3;
+}
+/*-------------------------------------------------*/
+
+.about-us {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-us h2 {
+    color: #ce7c11; /* The color of 'About Us' */
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.about-us h3 {
+    color: #333; /* The color of 'Welcome to Inspired Taste!' */
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.about-us p {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.about-us strong {
+    font-weight: bold;
+    color: #000; /* Emphasized text color */
+}
+
+/*----------------------------------------*/
+.recipe-section {
+    width: 150%; /* Ensures the image takes up the full width of its container */
+    max-width: 600px; /* Set a maximum width for the image */
+    max-height: 110px; /* Set a maximum height for the image */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 5px; /* Adds rounded corners to the image */
+    margin-bottom: 250px; /* Adds some space below the image */
+    display: block; /* Ensures the image is displayed as a block-level element */
+    margin-left: auto; /* Centers the image horizontally */
+    margin-right: auto; 
+}
+
+
+
+
+/*----------------------------------------*/
+.recipe-description{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #070707;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: justify;
+    
+}
+
+.recipe-description h3 {
+    color: #ce7c11; /* The color of 'About Us' */
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 700;
+
+}
+
+.recipe-description ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe-description li {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.recipe-description strong {
+    font-weight: bold;
+    color: #000; /* Emphasized text color */
+}
+/*--------------------------------------------------*/
+footer {
+    background: linear-gradient(135deg, #ce7c11, #b46910); /* Gradient background */
+    padding: 40px 20px;
+    margin-top: 30px;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2); 
+    color: #f5f2f2; /* Ensure text color is set here for all footer content */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: inherit; /* Inherits color from footer */
+}
+
+.footer-content > div {
+    flex: 1;
+    margin: 10px 100px; /* Equal margin between sections */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: inherit; /* Inherits color from footer */
+}
+
+.footer-content h3 {
+    color: #fff; /* Ensuring headers are white */
+    margin-bottom: 10px;
+}
+
+.footer-content p,
+.footer-content ul,
+.footer-content li {
+    color: inherit; /* Ensures all text uses the inherited color from the footer */
+    text-align: justify;
+}
+
+.footer-content ul {
+    list-style-type: disc;
+    padding: 0;
+}
+
+.footer-content ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-content ul li img {
+    max-width: 50px;
+    margin-right: 10px;
+}
+.pages p {
+    position: relative;
+    padding-left: 20px; /* Space for the bullet */
+    font-size: 16px;
+}
+
+.pages p::before {
+    content: "\2022"; /* Unicode for bullet */
+    position: absolute;
+    left: 0;
+    color: #f5f2f2; /* Color for the bullet */
+}
+.contact {
+    border-radius: 8px; /* Rounded corners */
+    color: #f1f2f3; /* Text color */
+    font-family: Arial, sans-serif;
+    margin-left: auto;
+}
+
+.contact h3 {
+    color: #fff;
+}
+
+.contact p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #f1f2f3;
+}
+
+.contact p i {
+    margin-right: 10px;
+    color: #e4aa0a ;/* Icon color */
+    font-size: 20px;
+    position: relative;
+}
+
+
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    color: inherit; /* Ensure it uses the inherited color */
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: inherit;
+}
+
+.social img {
+    width: 20px;
+    margin: 0 10px;
+}
+
+.social a {
+    text-decoration: none;
+    color: inherit; /* Ensures links use the inherited color */
+}
+/*-----------------*/
+@media (max-width: 767px) {
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    .top-bar-right {
+        position: static; /* Remove absolute positioning */
+        margin-top: 10px; /* Add some spacing on top */
+    }
+
+    .social-icons {
+        margin-bottom: 10px; /* Add spacing between social icons and auth links */
+    }
+
+    .auth-links .login,
+    .auth-links .register {
+        display: block;
+        margin: 10px 0; /* Add margin for better spacing */
+    }
+
+    .auth-links .register {
+        margin-left: 0; /* Remove left margin for better centering */
+    }
+    .menu-btn {
+       
+        display: block; /* Show menu button on small screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links initially */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute;
+        top: 60px; /* Adjust as per your header height */
+        left: 0;
+        right: 0;
+        background-color: #ce7c11;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+        max-height: 500px; /* Adjust max-height based on content */
+    }
+
+    .about-us {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .about-us h2 {
+        font-size: 28px; /* Adjust heading size */
+    }
+
+    .about-us h3 {
+        font-size: 20px; /* Adjust heading size */
+    }
+
+    .about-us p {
+        font-size: 16px; /* Adjust paragraph font size */
+    }
+
+    .about-us strong {
+        font-size: 16px; /* Adjust strong text font size */
+    }
+    .recipe-section {
+        width: 100%; /* Make the image take the full width */
+        max-width: none; /* Remove max-width constraint */
+        max-height: 200px; /* Adjust max-height for smaller screens */
+        margin-bottom: 20px; /* Adjust margin-bottom for smaller screens */
+    }
+
+    .recipe-section img {
+        width: 100%; /* Ensure the image scales with its container */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 5px; /* Keep rounded corners */
+    }
+
+    .recipe-description {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        padding: 15px; /* Reduce padding for smaller screens */
+        text-align: left; /* Align text to the left */
+    }
+
+    .recipe-description h3 {
+        margin-top: 80px;
+        font-size: 24px; /* Adjust heading size */
+    }
+
+    .recipe-description ul {
+        padding-left: 20px; /* Adjust padding for list items */
+    }
+
+    .recipe-description li {
+        font-size: 16px; /* Adjust list item font size */
+    }
+}

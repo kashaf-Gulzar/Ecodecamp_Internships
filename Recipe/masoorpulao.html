@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouthwatering Magic</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<style>
+    body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body   {
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+}
+
+.top-bar {
+    background-color: #e4aa0a;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    padding: 10px 20px;
+    color: #f3eded;
+    font-size: 1rem;
+    position: relative;
+}
+
+#dynamic-text {
+    text-align: center;
+    font-weight: bold;
+    color: #f3eded;
+    animation: fadeInOut 4s ease-in-out infinite; /* Fade-in and out animation */
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    right: 10px; /* Position the icons on the right side */
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #f3eded;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #0d0e0f;
+}
+
+.auth-links .login,
+.auth-links .register {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.auth-links .register {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ce7c11;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links li {
+    position: relative; /* Necessary for positioning the dropdown */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color:  #ce7c11;
+}
+
+/* Dropdown Menu Styling */
+.dropdown .dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%; /* Aligns below the Categories link */
+    left: 0;
+    background-color: #ce7c11;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px; /* Ensures minimum width */
+}
+
+.dropdown .dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown .dropdown-menu a {
+    display: block;
+    padding: 8px 20px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown .dropdown-menu a:hover {
+    background-color: #e4aa0a;
+    color: #fff;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block; /* Displays the dropdown when hovering over Categories */
+}
+
+/* Icon Styling */
+.icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.icons .fa-heart,
+.icons .fa-search {
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.icons .fa-search {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.icons .fa-search:hover,
+.icons .fa-heart:hover {
+    color: #ce7c11;
+}
+
+/*-------------------------------------------*/
+.recipe2 {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .recipe2 h2 {
+        color: #ce7c11;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .recipe-image {
+        width: 60%;
+        height: 50%;
+        border-radius: 5px;
+        margin: 0 auto 50px;
+        display: block;
+    }
+
+    .recipe-section {
+        width: 70%;
+        height: 70%;
+        border-radius: 5px;
+        margin: 0 auto 50px;
+        display: block;
+       padding-bottom: 150px;
+    }
+
+    .recipe-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    .ingredients-container,
+    .steps-container {
+        background-color: #fff;
+        border: 5px solid #ce7c11;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 45%;
+        
+    }
+    .steps-container p {
+        color: #ce7c11;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .ingredients-container h3,
+    .steps-container h3 {
+        font-size: 30px;
+        color: #ce7c11;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .ingredients-container ul {
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    .steps-container ol {
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    .ingredients-container ul li,
+    .steps-container ol li {
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+.ingredients-container p {
+    color: #ce7c11;
+    font-size: 20px;
+    font-weight: bold;
+}
+    .ingredient-images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .ingredient-images img {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        object-fit: cover;
+        border: 2px solid #ce7c11;
+    
+    }
+    /*--------------------*/
+    .review-section {
+        margin: 40px auto;
+        max-width: 800px;
+        padding: 20px;
+        border: 2px solid #ce7c11;
+        border-radius: 8px;
+        text-align: center;
+       background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOWOoU-PI2xepnkPRTE_kTEkR2EwBTQRsKxQ&s");
+        box-shadow: 0 4px 8px rgba(192, 119, 11, 0.911);
+    }
+
+    .review-section h3 {
+        font-size: 28px;
+        color: #ce7c11;
+        margin-bottom: 15px;
+    }
+
+    .star-rating {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+
+    .star-rating i {
+        font-size: 30px;
+        color: #888080;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .star-rating i.selected {
+        color: #e4aa0a;
+    }
+
+    .review-form textarea {
+        width: 90%;
+        height: 80px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: none;
+        font-size: 14px;
+    }
+
+    .review-form button {
+        background-color: #ce7c11;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .review-form button:hover {
+        background-color: #e4aa0a;
+    }
+
+    .success-message {
+        color:#0c0c0c;
+        font-size: 30px;
+        margin-top: 10px;
+        display: none;
+        font-weight: bolder;
+    }
+    @media (max-width: 767px) {
+        .top-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    .top-bar-right {
+        position: static; /* Remove absolute positioning */
+        margin-top: 10px; /* Add some spacing on top */
+    }
+
+    .social-icons {
+        margin-bottom: 10px; /* Add spacing between social icons and auth links */
+    }
+
+    .auth-links .login,
+    .auth-links .register {
+        display: block;
+        margin: 10px 0; /* Add margin for better spacing */
+    }
+
+    .auth-links .register {
+        margin-left: 0; /* Remove left margin for better centering */
+    }
+    .menu-btn {
+        display: block; /* Show menu button on small screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links initially */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute;
+        top: 60px; /* Adjust as per your header height */
+        left: 0;
+        right: 0;
+        background-color: #ce7c11;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+        max-height: 500px; /* Adjust max-height based on content */
+    }
+    .recipe1 {
+        font-size: 24px;
+    }
+
+    .recipe-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .recipe-container {
+        flex-direction: column;
+    }
+
+    .ingredients-container,
+    .steps-container {
+        width: 100%;
+    }
+
+    .ingredient-images img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .review-section {
+        padding: 10px;
+    }
+
+    .review-form textarea {
+        width: 100%;
+    }
+
+   
+}
+</style>
+<body>
+    
+    <header>
+        <div class="top-bar">
+            <p id="dynamic-text"></p> <!-- Container for the animated text -->
+            <div class="top-bar-right">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <button class="menu-btn" aria-label="Open Menu">☰</button> <!-- Menu button for small screens -->
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="recipe.html">Recipes</a></li>
+            
+                <li><a href="recipevedio.html">Recipe Video</a></li>
+                <li><a href="Addrecipe.html">Add Recipe</a></li>
+                <li><a href="recipedisplay.html">New Recipe</a></li>
+            </ul>
+            <div class="icons">
+                <i class="fa fa-heart"></i>
+                <i class="fa fa-search"></i>
+            </div>
+        </nav>
+        
+        
+    </header>
+    
+    <section class="recipe2">
+        <h2>Masoor Pulao</h2>
+    </section>
+
+    <section class="recipe-section">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwBSWt3ApAXlcbS3_A5fhnTWTil57_7kGvRw&s" alt="Masoor pulao" class="recipe-image">
+    </section>
+    
+<section class="recipe-container">
+    <!-- Key Ingredients Container -->
+    <div class="ingredients-container">
+        <h3>Key Ingredients</h3>
+        <ul>
+            <p>For the Masoor Curry</p>
+            <li>1/2 cup whole massor red lentils </li>
+            <li>1 green chilli </li>
+            <li>2 teasppon ginger & garlic paste</li>
+            <li>2 medium onions finely chopped</li>
+            <li>2 tomatoes finely chopped</li>
+            <li>2-3 teaspoons red chilli powder adjust to taste</li>
+            <li>2 teaspoon coriander powder</li>
+            <li>1 teaspoon cumin powder</li>
+            <li>1/2 teaspoon turmeric powder</li>
+            <li>Oil(or ghee for a non vegan version)</li>
+            <li>Salt to taste</li>
+            <p>For the Rice</p>
+            <li>1-1/2 cups basmati rice</li>
+            <li>4 cloves</li>
+            <li>1 stick cassia bark or cinnamon</li>
+            <li>1 bay leaf</li>
+            <li>2 cardamons slightly bruised</li>
+            <p>To Garnish</p>
+            <li>1 medium-small onions, finely sliced</li>
+            <li>1/4 cup cashew nut halves</li>
+            <li>1/8th cup raisins</li>
+            <li>Chopped fresh coriander</li>
+            <li>Oil (or ghee for a non vegan version) for frying</li>
+        </ul>
+        <!-- Ingredient Images -->
+        <div class="ingredient-images">
+           
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsd24YNou526LMQIbe6bfw9W-e71pa6JauEQ&s" alt="Masoor">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0wmZE5KI-6bWiWyGqsoTdI-UtRgWqVSebHQ&s" alt="Oil">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZHH2NrPOW8Qmi7RhcJcDLo4yvDQzleTpwkA&s" alt="Rice">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkD1ImeLAcqO1Ga4Arnpl7MvsxsXcejyfFGw&s" alt="Salt">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY7tKqVqtIWyp-kS68Y9QQhlDrVlRuyJssxA&s" alt="Tomato">
+           
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy0bXUy0OmwQOSdmOwqMvrPEsjOwL_nxsoMw&s" alt="caradamom">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpk9Ui2pJZlyhMUcpcVQYZ_e-Ts7XgiVAFYw&s" alt="cloves">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRCeIbPgio5O1igWCrZsKsxKDQ7YFCtenQ7A&s" alt="Bay Leaf">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLiUjOzlIUdyx-MBP1o7d10p6B6A5lnIlhsg&s" alt="Coriander">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBmHFd47FNsnv91U3Kv_WEL872ePzXZG-fpg&s" alt="Onions">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxM5BkQ4Iybw0Y6rJZ0NcWwAVONAhh9l6_Rw&s" alt="Potato">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjjU4n5NVBZvTCurIXM_astRBJ7G7tHzob5A&s" alt="Green Chilies">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbLqpVqPZJ1D4Zu057zqUsOmnBSLVbhRXmQSjNGmt505vONJndR7Z26frR6XabsirS-OU&usqp=CAU" alt="masala">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMwL1OZn48jE70o1wdNwkzVlMMbxM7t4fbCQ&s" alt="Potato">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7VlAp0GFb-vVBZh6C7l8Z-I86G4gE74UfMA&s" alt="water">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_iXmt5uTrObeXFuyggXRvVBP7Xw7BSZlH0Q&s" alt="Ginger">
+        </div>
+    </div>
+
+    <!-- Cooking Steps Container -->
+    <div class="steps-container">
+        <h3>Cooking Steps</h3>
+        <ul>
+            <li><strong>Step 1: </strong>Wash and soak the masoor in plenty of water for at least 8 hours or overnight, then discard the water and refresh with fresh water.</li>
+            <li><strong>Step 2: </strong>In a pressure cooker, heat the oil or ghee and fry the slit green chillies. Cover the pan to prevent oil from spluttering. Add the ginger-garlic paste as well and fry it on a low heat for half a minute or until the raw smell vanishes.</li>
+           <li><strong>Step 3: </strong>Toss in the sliced onions and let them fry till translucent. Then add the tomatoes and salt and fry till they turn mushy and oil begins to seprate.</li>
+           <li><strong>Step 4: </strong>Add the turmeric coriander, cumin and red chilli powders and fry for half a minute. Drain the whole masoor completely and add it in. Give everything a good mix and add a cup of water. Check salt and bring the mixture to a boil.</li>
+            <li><strong>Step 5: </strong>Cover pressure cook on full heat for two whistles. Remove the cooker from the heat and leave it undistributed until you are able to remove the whistle easily. Open, stir and keep aside( if it is not yet tender, put it back on the heat and give it another whistle). The masoor dal should be tender but not overcooked or mushy.</li>
+           <li><strong>Step 6: </strong>To make the rice, first wash the rice in 2-3 changes of water, drain and keep aside. Bring 3 cups of water to a boil. You may use plain water or chicken or vegetable stock ( or bouillon (stock) cube dissolved in water)</li>
+           <li><strong>Step 7: </strong>Heat the ghee or oil in a heavy based kadai.wok and add the whole spices - cloves cinnamon or cassia bark, bayleaf and cardamons Let them sizzle on a low heat for a few seconds</li>
+           <li><strong>Step 8: </strong>Add the washed & drained rice and fry it for a couple of minutes. When the ladle begins to feel a little heavy add the freshly boiled water/stock mixture and turn up the heat. Give the micture a good boil-let it bubble for a minutes or so. Then reduce the heat completely to a sim and cover with a well fitting lid so on stream can escape. Keep a timer for exactly 5 minutes. Then turn off the heat nad let the rice cook undistributed for 15 minutes. After the time is up, open the pan and gently fluff up the rice using a fork. Cover and keep aside</li>
+           <li><strong>Step 9: </strong>While the rice is cooking you can heat oil or ghee in a small pan and fry the items for garnishing. First fry the sliced onions till they turn golden brown and remove on a plate lined with kitchen tissur. Next fry the raisins & nuts separately until they turn golden. Remove on the plate.</li>
+           <li><strong>Step 10: </strong> Once the rice is ready, layer 1/3rd of the portion in a serving dish. Top it with a layer of cooked masoor dal mixture.Add another layer rice and then a layer of the masoor dal. Continue till all the rice and masoor dal have been used up. Garnish with the fried onions, raisins & nuts. Sprinke with chopped coriander and serve hot with raitha or salan (or curry)</li>
+           
+            
+        </ul>
+    </div>
+</section>
+<div class="review-section">
+    <h3>Leave a Review</h3>
+    <div class="star-rating">
+        <i class="fas fa-star" data-value="1"></i>
+        <i class="fas fa-star" data-value="2"></i>
+        <i class="fas fa-star" data-value="3"></i>
+        <i class="fas fa-star" data-value="4"></i>
+        <i class="fas fa-star" data-value="5"></i>
+    </div>
+    <form class="review-form">
+        <textarea placeholder="Write your review here..." required></textarea>
+        <button type="submit">Submit Review</button>
+    </form>
+    <div class="success-message">Thank you! Your review has been submitted successfully.</div>
+</div>
+</div>
+
+<script>
+// Star rating functionality
+const stars = document.querySelectorAll('.star-rating i');
+let selectedRating = 0;
+
+stars.forEach(star => {
+    star.addEventListener('click', () => {
+        selectedRating = star.getAttribute('data-value');
+        stars.forEach(s => s.classList.remove('selected'));
+        for (let i = 0; i < selectedRating; i++) {
+            stars[i].classList.add('selected');
+        }
+    });
+});
+
+// Review form submission
+const reviewForm = document.querySelector('.review-form');
+const successMessage = document.querySelector('.success-message');
+
+reviewForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // Here you could also save the review data if needed
+    successMessage.style.display = 'block';
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+    }, 3000);
+    reviewForm.reset();
+    stars.forEach(s => s.classList.remove('selected'));
+    selectedRating = 0;
+});
+
+const phrases1 = [
+    "Delicious Dishes for Every Home",
+    "Savor the Flavor in Every Bite",
+    "From Our Kitchen to Yours",
+    "Cooking Up Joy in Every Meal",
+    "Taste the Magic of Homemade Cooking",
+    "Bringing Gourmet to Your Table",
+    "Flavorful Creations for Every Taste",
+    "Your Kitchen's Best Kept Secret",
+    "Crafting Culinary Delights at Home",
+    "Where Every Recipe Tells a Story"
+];
+
+let currentPhrase = 0;
+const textElement = document.getElementById('dynamic-text');
+
+function updateText() {
+    textElement.textContent = phrases1[currentPhrase];
+    currentPhrase = (currentPhrase + 1) % phrases1.length; // Cycle through the phrases
+}
+
+setInterval(updateText, 4000); // Change phrase every 4 seconds
+updateText(); // Initialize with the first phrase
+
+/*----------------------*/
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // Toggle the visibility of the nav links
+});
+</script>
+</body>
+</html>
+

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouthwatering Magic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            line-height: 1.6;
+            font-family: Arial, sans-serif;
+        }
+
+        .top-bar {
+    background-color: #e4aa0a;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    padding: 10px 20px;
+    color: #f3eded;
+    font-size: 1rem;
+    position: relative;
+}
+
+#dynamic-text {
+    text-align: center;
+    font-weight: bold;
+    color: #f3eded;
+    animation: fadeInOut 4s ease-in-out infinite; /* Fade-in and out animation */
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    right: 10px; /* Position the icons on the right side */
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #f3eded;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #0d0e0f;
+}
+
+.auth-links .login,
+.auth-links .register {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.auth-links .register {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ce7c11;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links li {
+    position: relative; /* Necessary for positioning the dropdown */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color:  #ce7c11;
+}
+
+
+/* Icon Styling */
+.icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.icons .fa-heart,
+.icons .fa-search {
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.icons .fa-search {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.icons .fa-search:hover,
+.icons .fa-heart:hover {
+    color: #ce7c11;
+}
+.menu-btn {
+    display: none;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #ce7c11;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: #0b0da3;
+}
+
+        /*------------------------------------------------------------*/
+        .hero {
+            background: url('https://www.eatingwell.com/thmb/m5xUzIOmhWSoXZnY-oZcO9SdArQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_291139_the-top-10-healthiest-foods-for-kids_-02-4b745e57928c4786a61b47d8ba920058.jpg'); /* Replace with your actual background image URL */
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero-content {
+        text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .search-box input {
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 10px;
+            background-color: #ce7c11;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            color: white;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background-color: #0e0d5a;
+        }
+
+        .recipedisplay {
+            font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    color: black;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flexbox for centering */
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center items horizontally */
+        }
+
+        .recipe-list {
+            max-width: 1200px;
+            margin: 50px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .recipe-item {
+            background: #ffffff;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .recipe-item:hover {
+            transform: scale(1.05);
+        }
+
+        .recipe-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .recipe-item p {
+            padding: 15px;
+            font-size: 18px;
+            color: #d17f19;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .recipe-item .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #d17d16;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .recipe-item .delete-btn:hover {
+            background: #bf6e16;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 5px solid #d17f19;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .modal-content h2 {
+            color: #d17f19;
+            text-align: center;
+        }
+
+        .modal-content img {
+            display: block; /* Ensures the image is treated as a block-level element */
+            margin: 0 auto; /* Centers the image horizontally */
+            width: 50%; /* Adjust width as needed */
+            border-radius: 8px;
+        }
+
+        .modal-content p {
+            margin: 10px 0;
+        }
+
+        .modal-content ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        .modal-content .close {
+            color: #d17d16;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .modal-content .close:hover,
+        .modal-content .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        
+        .add-recipe-btn {
+            margin: 20px 0; /* Margin to add space around the button */
+    padding: 10px 20px;
+    background-color: #ce7c11;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center; /* Center text inside the button */
+}
+
+        .add-recipe-btn:hover {
+            background-color:#e4aa0a;
+        }
+
+        /*------------------*/
+        @media (max-width: 767px) {
+            .top-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    .top-bar-right {
+        position: static; /* Remove absolute positioning */
+        margin-top: 10px; /* Add some spacing on top */
+    }
+
+    .social-icons {
+        margin-bottom: 10px; /* Add spacing between social icons and auth links */
+    }
+
+    .auth-links .login,
+    .auth-links .register {
+        display: block;
+        margin: 10px 0; /* Add margin for better spacing */
+    }
+
+    .auth-links .register {
+        margin-left: 0; /* Remove left margin for better centering */
+    }
+    .menu-btn {
+        display: block; /* Show menu button on small screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links initially */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute;
+        top: 60px; /* Adjust as per your header height */
+        left: 0;
+        right: 0;
+        background-color: #ce7c11;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+        max-height: 500px; /* Adjust max-height based on content */
+    }
+
+    .hero {
+        height: 60vh;
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+    .recipe-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <p id="dynamic-text"></p> <!-- Container for the animated text -->
+            <div class="top-bar-right">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <button class="menu-btn" aria-label="Open Menu">☰</button> <!-- Menu button for small screens -->
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="recipe.html">Recipes</a></li>
+                
+                <li><a href="recipevedio.html">Recipe Video</a></li>
+                <li><a href="Addrecipe.html">Add Recipe</a></li>
+                <li><a href="recipedisplay.html">New Recipe</a></li>
+            </ul>
+            <div class="icons">
+                <i class="fa fa-heart"></i>
+                <i class="fa fa-search"></i>
+            </div>
+        </nav>
+        
+        
+    </header>
+    
+    <section>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Learn how to Cook, Try New Recipes learn from your Mistakes, be Fearless, and above all have fun</h1>
+            </div>
+        </section>
+        <section class="recipedisplay">
+            <div class="recipe-list" id="recipes"></div>
+            <a href="Addrecipe.html" class="add-recipe-btn">Add More Recipes</a>
+
+            <div id="recipeModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="modal-title"></h2>
+                    <img id="modal-image" src="" alt="Recipe Image">
+                    <p><strong>Ingredients:</strong></p>
+                    <ul id="modal-ingredients"></ul>
+                    <p><strong>Instructions:</strong></p>
+                    <div id="modal-instructions"></div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <script>
+        function loadRecipes() {
+            const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+            const recipesContainer = document.getElementById('recipes');
+            recipesContainer.innerHTML = '';
+
+            recipes.forEach((recipe, index) => {
+                const recipeDiv = document.createElement('div');
+                recipeDiv.classList.add('recipe-item');
+                recipeDiv.setAttribute('data-title', recipe.title);
+                recipeDiv.setAttribute('data-image', recipe.image);
+                recipeDiv.setAttribute('data-ingredients', recipe.ingredients);
+                recipeDiv.setAttribute('data-instructions', JSON.stringify(recipe.instructions));
+
+                const imgElement = document.createElement('img');
+                imgElement.src = recipe.image;
+                imgElement.alt = recipe.title;
+
+                const titleElement = document.createElement('p');
+                titleElement.textContent = recipe.title;
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add('delete-btn');
+                deleteBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    deleteRecipe(index);
+                });
+
+                recipeDiv.appendChild(imgElement);
+                recipeDiv.appendChild(titleElement);
+                recipeDiv.appendChild(deleteBtn);
+
+                recipeDiv.addEventListener('click', function() {
+                    document.getElementById('modal-title').textContent = this.getAttribute('data-title');
+                    document.getElementById('modal-image').src = this.getAttribute('data-image');
+                    const ingredients = this.getAttribute('data-ingredients').split(',').map(ingredient => `<li>${ingredient.trim()}</li>`).join('');
+                    document.getElementById('modal-ingredients').innerHTML = ingredients;
+                    const instructions = JSON.parse(this.getAttribute('data-instructions'));
+                    const instructionsHtml = instructions.map((step, index) => `<p>Step ${index + 1}: ${step}</p>`).join('');
+                    document.getElementById('modal-instructions').innerHTML = instructionsHtml;
+
+                    document.getElementById('recipeModal').style.display = 'block';
+                });
+
+                recipesContainer.appendChild(recipeDiv);
+            });
+        }
+
+        function deleteRecipe(index) {
+            const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+            recipes.splice(index, 1);
+            localStorage.setItem('recipes', JSON.stringify(recipes));
+            loadRecipes();
+        }
+
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('recipeModal').style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('recipeModal')) {
+                document.getElementById('recipeModal').style.display = 'none';
+            }
+        });
+
+        loadRecipes();
+
+
+        const phrases1 = [
+    "Delicious Dishes for Every Home",
+    "Savor the Flavor in Every Bite",
+    "From Our Kitchen to Yours",
+    "Cooking Up Joy in Every Meal",
+    "Taste the Magic of Homemade Cooking",
+    "Bringing Gourmet to Your Table",
+    "Flavorful Creations for Every Taste",
+    "Your Kitchen's Best Kept Secret",
+    "Crafting Culinary Delights at Home",
+    "Where Every Recipe Tells a Story"
+];
+
+let currentPhrase = 0;
+const textElement = document.getElementById('dynamic-text');
+
+function updateText() {
+    textElement.textContent = phrases1[currentPhrase];
+    currentPhrase = (currentPhrase + 1) % phrases1.length; // Cycle through the phrases
+}
+
+setInterval(updateText, 4000); // Change phrase every 4 seconds
+updateText(); // Initialize with the first phrase
+
+/*-----------*/
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // Toggle the visibility of the nav links
+});
+    </script>
+</body>
+</html>

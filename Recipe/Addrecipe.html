@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Recipe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            height: 100vh;
+            background-image: url("https://www.kitchensanctuary.com/wp-content/uploads/2019/09/Spaghetti-Bolognese-tall-FS-0204.webp");
+            background-size: cover; /* Ensure background covers the entire screen */
+            background-position: center; /* Center the background image */
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 5px solid #d17f19;
+        }
+
+        .form-container h1 {
+            color: #d17f19;
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #d17f19;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #bf6e16;
+        }
+
+        .message {
+            display: none;
+            text-align: center;
+            font-size: 30px;
+            padding: 20px;
+            background-color: #dff0d8;
+            color: #bf6e16;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 767px) {
+            .form-container {
+                max-width: 90%; /* Reduce max-width for small screens */
+                margin: 20px auto; /* Reduce margin */
+                padding: 15px; /* Reduce padding */
+                border: 3px solid #d17f19; /* Adjust border width */
+            }
+
+            .form-container h1 {
+                font-size: 24px; /* Reduce heading font size */
+            }
+
+            .form-container input, .form-container textarea {
+                font-size: 14px; /* Reduce font size for inputs and textareas */
+                padding: 8px; /* Reduce padding */
+            }
+
+            .form-container button {
+                font-size: 14px; /* Reduce button font size */
+                padding: 8px; /* Reduce padding */
+            }
+
+            .message {
+                font-size: 24px; /* Reduce font size for the message */
+                padding: 15px; /* Reduce padding */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Submit Your Recipe</h1>
+        <form id="recipe-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="title">Recipe Title:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="image">Image URL:</label>
+            <input type="url" id="image" name="image" required>
+            <label for="ingredients">Ingredients (comma-separated):</label>
+            <input type="text" id="ingredients" name="ingredients" required>
+            <label for="instructions">Instructions (one per line):</label>
+            <textarea id="instructions" name="instructions" rows="4" required></textarea>
+            <button type="submit">Add Recipe</button>
+        </form>
+        <div class="message" id="success-message">Your recipe was successfully added!</div>
+    </div>
+
+    <script>
+        document.getElementById('recipe-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('title').value;
+            const imageUrl = document.getElementById('image').value;
+            const ingredients = document.getElementById('ingredients').value;
+            const instructions = document.getElementById('instructions').value.split('\n');
+            const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+            recipes.push({
+                title: title,
+                image: imageUrl,
+                ingredients: ingredients,
+                instructions: instructions
+            });
+            localStorage.setItem('recipes', JSON.stringify(recipes));
+
+            // Show success message
+            const successMessage = document.getElementById('success-message');
+            successMessage.style.display = 'block';
+
+            // Redirect to the Recipe Display page after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'recipedisplay.html'; // Change to the actual path of your Recipe Display page
+            }, 2000); // Adjust the delay as needed
+        });
+    </script>
+</body>
+</html>

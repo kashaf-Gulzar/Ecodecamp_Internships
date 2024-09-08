@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Haven Essentials</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="skincare.css">
+</head>
+<style>
+    .heading1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .heading1 h1 {
+        color: #9F2B68;
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+/*------------------------------*/
+.hero-image {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1seqKoAegOAzwLY7dXU2Wqol6QLagrRY5-w&s'); /* Replace with your actual background image URL */
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.hero-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+
+.hero-text p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+/*--------------------------------*/
+    .cart {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    background-color: white;
+    border-left: 10px solid; /* Adjust thickness as needed */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: borderColorChange 3s linear infinite;
+}
+
+/* Keyframes for border color animation */
+@keyframes borderColorChange {
+    0% {
+        border-left-color: #9F2B68; /* Start color */
+    }
+    25% {
+        border-left-color: #c02176; /* Gold color */
+    }
+    50% {
+        border-left-color:#da3a8f; /* Deep Sky Blue color */
+    }
+    75% {
+        border-left-color: #752e54; /* Lime Green color */
+    }
+    100% {
+        border-left-color: #4b1331; /* End color */
+    }
+}
+
+
+    .cart img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    .cart ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .cart ul li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .cart .total {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .cart-btn {
+        background-color: #ce498f;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+    }
+
+    .delete-item {
+        cursor: pointer;
+        color:  #9F2B68;
+    }
+
+    .cart-toggle {
+        cursor: pointer;
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        background-color: #9F2B68;
+        color: white;
+        z-index: 1001;
+        border-radius: 5px 0 0 5px;
+    }
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(159, 43, 104, 0.8); /* Corrected RGBA color */
+    padding-top: 60px;
+}
+
+    .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 20px;
+        border: 5px solid #9F2B68;
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .close {
+        color: #f1f1f1;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
+</style>
+<body>
+    
+    <header>
+        <div class="top-bar">
+            <p>Choose products that Supports your wellness and help  you feel GORGEOUS </p>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"><img src="https://glowhavenessentials.shop/cdn/shop/files/Glow_haven_Essentials_2.png?v=1713007857&width=500" alt="Glow Haven"></a> <!-- Replace with actual logo URL -->
+            </div>
+            <ul class="nav-right">
+                <li><a href="#">PKR</a></li>
+                <li><a href="#">Find a Professional </a></li>
+                <li><a href="#" id="view-cart">My Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+        <nav class="medium-bar">
+            <li><a href="index.html">Find my Routine</a></li>
+            <li><a href="skincare.html">Skin Care</a>
+                <div class="dropdown-content">
+                    <div>
+                        <a href="creams.html">Creams Cleanser & Lotions</a>
+                       
+                    </div>
+                    <div>
+                        <a href="Scrubs.html">Scrubs</a>
+                        <a href="moisturizing.html">Moisturizing Gel</a>
+                        <a href="Serum.html">Serum</a>
+                        <a href="vitamin.html">Vitamin C Range</a>
+                        <a href="toners.html">Toners & Tonics</a>
+                        <a href="soaps.html">Soaps</a>
+                        <a href="facemask.html">Face Masks</a>
+                        <a href="facewashes.html">Face washes</a>
+                        <a href="hairemoval.html">Hair Removal </a>
+                        <a href="antiaging.html">Anti-Aging Product</a>
+                        <a href="essential.html">Essentials & Body Oils</a>
+                    </div>
+                    
+                </div></li>
+            <li><a href="#">Hair Care</a>
+                <div class="dropdown-content">
+                    <div>
+                        <a href="naturaloils.html">Natural Oils</a>
+                       
+                    </div>
+                    <div>
+                        <a href="hairconditioner.html">Hair Conditioning Masks</a>
+                        <a href="naturalhair.html">Natural Hair Dyes</a>
+                        <a href="shampoo.html">Shampoo</a>
+                        <a href="hairgrowth.html">Hair Growth</a>
+                    </div>
+                    
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Fragrances</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Luxury Perfumes</h3>
+                        <a href="him.html">For Him</a>
+                        <a href="her.html">For Her</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Fragrances - Deals & Bundles</h3>
+                        <a href="deal.html">For Him</a>
+                        <a href="deal1.html">For Her</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Signature Perfumes</h3>
+                        <a href="perfume.html">Perfumes For Men</a>
+                        <a href="perfume1.html">Perfumes For Women</a>
+                    </div>
+                   
+                    
+                </div>
+            </li>
+            <li><a href="kit.html">Deal & Kit</a></li>
+            <li><a href="addproduct.html">Add Product</a></li>
+            <li><a href="productdetail.html">New Products</a></li>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search products...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+    </header>
+    <div class="hero-image">
+        <div class="hero-text">
+            
+            <h1>Perfume is the Reflector of the Heart</h1>
+            
+            
+        </div>
+        </div>
+    <div class="heading1">
+        <h1>Perfumes For Men</h1>
+    </div>
+    <section class="products-section">
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/000A0205-2RE_300x.jpg?v=1710928315" alt="Obsession (Inspired By Creed Aventus)">
+            <p class="product-description">Obsession (Inspired By Creed Aventus)</p>
+            <p class="product-price">Rs.1690</p>
+            <button class="add-to-bag-button" data-name="Obsession (Inspired By Creed Aventus)" data-price="1690" data-image="https://saeedghani.pk/cdn/shop/files/000A0205-2RE_300x.jpg?v=171092831">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/passion_1024x1024.jpg?v=1700825052" alt="Intense Passion (Inspired By Dunhill Desire)">
+            <p class="product-description">Intense Passion (Inspired By Dunhill Desire)</p>
+            <p class="product-price">Rs.1490</p>
+            <button class="add-to-bag-button" data-name="Intense Passion (Inspired By Dunhill Desire)" data-price="1490" data-image="https://saeedghani.pk/cdn/shop/files/passion_1024x1024.jpg?v=1700825052">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/signature_1024x1024.jpg?v=1710928758" alt="Signature (Inspired By Sauvage)">
+            <p class="product-description">Signature (Inspired By Sauvage)</p>
+            <p class="product-price">Rs.1690</p>
+            <button class="add-to-bag-button" data-name="Signature (Inspired By Sauvage)" data-price="1690" data-image="https://saeedghani.pk/cdn/shop/files/signature_1024x1024.jpg?v=1710928758">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/Hugo-Bos_300x.jpg?v=1700465781" alt="Hugo Essence (Inspired By Hugo Boss)">
+            <p class="product-description">Hugo Essence (Inspired By Hugo Boss)</p>
+            <p class="product-price">Rs.1390</p>
+            <button class="add-to-bag-button" data-name="Hugo Essence (Inspired By Hugo Boss)" data-price="1390" data-image="https://saeedghani.pk/cdn/shop/products/Hugo-Bos_300x.jpg?v=1700465781">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/eternityForWeb_1024x1024.jpg?v=1708938891" alt="Everlast (Inspired By Eternity)">
+            <p class="product-description">Everlast (Inspired By Eternity)</p>
+            <p class="product-price">Rs.1290</p>
+            <button class="add-to-bag-button" data-name="Everlast (Inspired By Eternity)" data-price="1290" data-image="https://saeedghani.pk/cdn/shop/files/eternityForWeb_1024x1024.jpg?v=1708938891">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/Kingdom_1024x1024.jpg?v=1710788611" alt="Bundle of 4 Arabic Attars at the price of 3">
+            <p class="product-description">Kingdom (Inspired By Bleu De Chanel)</p>
+            <p class="product-price">Rs.1690</p>
+            <button class="add-to-bag-button" data-name="Kingdom (Inspired By Bleu De Chanel)" data-price="1690" data-image="https://saeedghani.pk/cdn/shop/files/Kingdom_1024x1024.jpg?v=1710788611">Add to Bag</button>
+        </div>
+       
+        
+    </section>
+
+    <div class="cart-toggle">Cart</div>
+    <div class="cart" id="cart">
+        <h2>My Cart</h2>
+        <ul id="cart-items">
+            <!-- Items will be added here -->
+        </ul>
+        <p class="total">Total: Rs.<span id="cart-total">0</span></p>
+        <button class="cart-btn" id="checkout-btn">Checkout</button>
+    </div>
+    <div id="productAddedModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeProductAddedModal">&times;</span>
+            <h2>Success!</h2>
+            <p>Your product has been successfully added to the cart.</p>
+        </div>
+    </div>
+
+
+    <script>
+      
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+          let cartTotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+          let cartItemCount = cartItems.length;
+          
+          function updateCart() {
+              const cartItemsList = document.getElementById('cart-items');
+              const cartTotalElement = document.getElementById('cart-total');
+              const cartCountElement = document.getElementById('cart-count');
+          
+              cartItemsList.innerHTML = '';
+          
+              cartItems.forEach((item, index) => {
+                  const li = document.createElement('li');
+          
+                  const img = document.createElement('img');
+                  img.src = item.image;
+                  li.appendChild(img);
+          
+                  const itemInfo = document.createElement('span');
+                  itemInfo.textContent = `${item.name} - Rs.${item.price}`;
+                  li.appendChild(itemInfo);
+          
+                  const deleteBtn = document.createElement('span');
+                  deleteBtn.textContent = 'Delete';
+                  deleteBtn.classList.add('delete-item');
+                  deleteBtn.addEventListener('click', function() {
+                      cartTotal -= item.price;
+                      cartItemCount--;
+                      cartItems.splice(index, 1);
+                      localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Save updated cart
+                      updateCart();
+                  });
+                  li.appendChild(deleteBtn);
+          
+                  cartItemsList.appendChild(li);
+              });
+          
+              cartTotalElement.textContent = cartTotal;
+              cartCountElement.textContent = cartItemCount;
+          }
+          
+          document.querySelectorAll('.add-to-bag-button').forEach(button => {
+              button.addEventListener('click', function() {
+                  const productName = this.getAttribute('data-name');
+                  const productPrice = parseInt(this.getAttribute('data-price'));
+                  const productImage = this.getAttribute('data-image');
+          
+                  cartItems.push({ name: productName, price: productPrice, image: productImage });
+          
+                  cartItemCount++;
+                  cartTotal += productPrice;
+          
+                  localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Save cart to local storage
+          
+                  updateCart();
+                  const productAddedModal = document.getElementById('productAddedModal');
+      productAddedModal.style.display = 'block';
+      setTimeout(() => {
+          productAddedModal.style.display = 'none';
+      }, 2000);
+  
+      document.getElementById('cart').style.display = 'block';
+                  document.getElementById('cart').style.display = 'block';
+              });
+          });
+          
+          document.getElementById('view-cart').addEventListener('click', function() {
+              const cart = document.getElementById('cart');
+              cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+          });
+          
+          document.querySelector('.cart-toggle').addEventListener('click', function() {
+              const cart = document.getElementById('cart');
+              cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+          });
+          const searchInput = document.getElementById('search-input');
+  const searchBtn = document.getElementById('search-btn');
+  const productCards = document.querySelectorAll('.product-card');
+  
+  // Filter products as you type
+  searchInput.addEventListener('input', function() {
+      const query = searchInput.value.toLowerCase();
+      let firstMatch = null;
+  
+      productCards.forEach(card => {
+          const description = card.querySelector('.product-description').textContent.toLowerCase();
+          const button = card.querySelector('.add-to-bag-button');
+  
+          // Show matching products
+          if (description.includes(query)) {
+              card.style.display = 'block';
+              if (!firstMatch) {
+                  firstMatch = button; // Save the first matching button
+              }
+          } else {
+              card.style.display = 'none';
+          }
+      });
+  });
+  
+  // Redirect on search button click or Enter press
+  searchBtn.addEventListener('click', redirectToFirstMatch);
+  searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+          redirectToFirstMatch();
+      }
+  });
+  
+  function redirectToFirstMatch() {
+      const query = searchInput.value.toLowerCase();
+      for (const card of productCards) {
+          const description = card.querySelector('.product-description').textContent.toLowerCase();
+          const button = card.querySelector('.add-to-bag-button');
+  
+          if (description.includes(query)) {
+              window.location.href = button.getAttribute('data-url');
+              break;
+          }
+      }
+  }
+          document.getElementById('checkout-btn').addEventListener('click', function() {
+              window.location.href = 'checkout.html'; // Redirect to the checkout page
+          });
+          
+          // Initialize cart
+          updateCart();
+      </script>
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouthwatering Magic</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<style>
+    body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body   {
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+}
+
+.top-bar {
+    background-color: #e4aa0a;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    padding: 10px 20px;
+    color: #f3eded;
+    font-size: 1rem;
+    position: relative;
+}
+
+#dynamic-text {
+    text-align: center;
+    font-weight: bold;
+    color: #f3eded;
+    animation: fadeInOut 4s ease-in-out infinite; /* Fade-in and out animation */
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    right: 10px; /* Position the icons on the right side */
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #f3eded;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #0d0e0f;
+}
+
+.auth-links .login,
+.auth-links .register {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.auth-links .register {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ce7c11;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links li {
+    position: relative; /* Necessary for positioning the dropdown */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color:  #ce7c11;
+}
+
+/* Dropdown Menu Styling */
+.dropdown .dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%; /* Aligns below the Categories link */
+    left: 0;
+    background-color: #ce7c11;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px; /* Ensures minimum width */
+}
+
+.dropdown .dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown .dropdown-menu a {
+    display: block;
+    padding: 8px 20px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown .dropdown-menu a:hover {
+    background-color: #e4aa0a;
+    color: #fff;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block; /* Displays the dropdown when hovering over Categories */
+}
+
+/* Icon Styling */
+.icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.icons .fa-heart,
+.icons .fa-search {
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.icons .fa-search {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.icons .fa-search:hover,
+.icons .fa-heart:hover {
+    color: #ce7c11;
+}
+
+
+/*-------------------------------------------*/
+.recipe2 {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .recipe2 h2 {
+        color: #ce7c11;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .recipe-image {
+        width: 60%;
+        height: 50%;
+        border-radius: 5px;
+        margin: 0 auto 50px;
+        display: block;
+    }
+
+    .recipe-section {
+        width: 70%;
+        height: 70%;
+        border-radius: 5px;
+        margin: 0 auto 50px;
+        display: block;
+       padding-bottom: 150px;
+    }
+
+    .recipe-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    .ingredients-container,
+    .steps-container {
+        background-color: #fff;
+        border: 5px solid #ce7c11;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 45%;
+        
+    }
+    .steps-container p {
+        color: #ce7c11;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .ingredients-container h3,
+    .steps-container h3 {
+        font-size: 30px;
+        color: #ce7c11;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .ingredients-container ul {
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    .steps-container ol {
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    .ingredients-container ul li,
+    .steps-container ol li {
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+.ingredients-container p {
+    color: #ce7c11;
+    font-size: 20px;
+    font-weight: bold;
+}
+    .ingredient-images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .ingredient-images img {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        object-fit: cover;
+        border: 2px solid #ce7c11;
+    
+    }
+    /*--------------------*/
+    .review-section {
+        margin: 40px auto;
+        max-width: 800px;
+        padding: 20px;
+        border: 2px solid #ce7c11;
+        border-radius: 8px;
+        text-align: center;
+       background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOWOoU-PI2xepnkPRTE_kTEkR2EwBTQRsKxQ&s");
+        box-shadow: 0 4px 8px rgba(192, 119, 11, 0.911);
+    }
+
+    .review-section h3 {
+        font-size: 28px;
+        color: #ce7c11;
+        margin-bottom: 15px;
+    }
+
+    .star-rating {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+
+    .star-rating i {
+        font-size: 30px;
+        color: #888080;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .star-rating i.selected {
+        color: #e4aa0a;
+    }
+
+    .review-form textarea {
+        width: 90%;
+        height: 80px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: none;
+        font-size: 14px;
+    }
+
+    .review-form button {
+        background-color: #ce7c11;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .review-form button:hover {
+        background-color: #e4aa0a;
+    }
+
+    .success-message {
+        color:#0c0c0c;
+        font-size: 30px;
+        margin-top: 10px;
+        display: none;
+        font-weight: bolder;
+    }
+    @media (max-width: 767px) {
+        .top-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    .top-bar-right {
+        position: static; /* Remove absolute positioning */
+        margin-top: 10px; /* Add some spacing on top */
+    }
+
+    .social-icons {
+        margin-bottom: 10px; /* Add spacing between social icons and auth links */
+    }
+
+    .auth-links .login,
+    .auth-links .register {
+        display: block;
+        margin: 10px 0; /* Add margin for better spacing */
+    }
+
+    .auth-links .register {
+        margin-left: 0; /* Remove left margin for better centering */
+    }
+    .menu-btn {
+        display: block; /* Show menu button on small screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links initially */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute;
+        top: 60px; /* Adjust as per your header height */
+        left: 0;
+        right: 0;
+        background-color: #ce7c11;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+        max-height: 500px; /* Adjust max-height based on content */
+    }
+    .recipe1 {
+        font-size: 24px;
+    }
+
+    .recipe-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .recipe-container {
+        flex-direction: column;
+    }
+
+    .ingredients-container,
+    .steps-container {
+        width: 100%;
+    }
+
+    .ingredient-images img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .review-section {
+        padding: 10px;
+    }
+
+    .review-form textarea {
+        width: 100%;
+    }
+
+   
+}
+</style>
+<body>
+    
+    <header>
+        <div class="top-bar">
+            <p id="dynamic-text"></p> <!-- Container for the animated text -->
+            <div class="top-bar-right">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <button class="menu-btn" aria-label="Open Menu">☰</button> <!-- Menu button for small screens -->
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="recipe.html">Recipes</a></li>
+                
+                <li><a href="recipevedio.html">Recipe Video</a></li>
+                <li><a href="Addrecipe.html">Add Recipe</a></li>
+                <li><a href="recipedisplay.html">New Recipe</a></li>
+            </ul>
+            <div class="icons">
+                <i class="fa fa-heart"></i>
+                <i class="fa fa-search"></i>
+            </div>
+        </nav>
+        
+        
+    </header>
+    
+   
+    <section class="recipe2">
+        <h2>Singaporean Rice</h2>
+    </section>
+
+    <section class="recipe-section">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpWHdRAO6GuTygvaWDKOM1mYEBO4leQ2vyLw&s" alt="Singaporean Rice" class="recipe-image">
+    </section>
+    
+<section class="recipe-container">
+    <!-- Key Ingredients Container -->
+    <div class="ingredients-container">
+        <h3>Key Ingredients</h3>
+        <ul>
+           
+            <p>For the Chicken</p>
+            <li>1.5 lbs boneless skinless chicken cut into 1 inch cubes (thigh or breast pieces, or a mix works)</li>
+            <li>4 tbsp soy sauce, divided</li>
+            <li>1 tbsp corn starch (optional)</li>
+            <li>2 tbsp oil</li>
+            <li>1 tbsp minced garlic</li>
+            <li>1 tbsp minced ginger </li>
+            <li>1-2 green chillies, diced </li>
+            <li>1 large onion, large diced</li>
+            <li>1 tsp kashmiri red chilli powder</li>
+            <li>1/2 tsp black pepper</li>
+            <li>1 tbsp rice vinegar</li>
+            <li>2 tbsp ketchup</li>
+            <li>1-2 tsp sriracha (or any chilli garlic sauce of choice)</li>
+            <li>2 tbsp water, as needed</li>
+            <li>1 red pepper, thinly sliced</li>
+            <li>1 bag coleslaw mix (approx. 2 cups of shredded cabbage, carrot etc.) – optional</li>
+            <li>1 tbsp sesame oil</li>
+            <p>For the Noodles & Rice</p>
+            <li>1.5 cup basmati rice</li>
+            <li>6 tbsp cooking oil, divided</li>
+            <li>2-3 black peppercorns</li>
+            <li>1 pkg spaghetti (approx. 450g)</li>
+            <li>1-2 heads garlic, peeled and thinly sliced (approx. 15-20 cloves of garlic)</li>
+            <li>pinch red pepper flakes optional</li>
+            <li>salt, to taste</li>
+            <p>For the Spicy Garlic Mayo</p>
+            <li>1 1/2 cup mayo</li>
+            <li>1/2 cup ketchup</li>
+            <li>2-4 tbsp sriracha (or any chilli garlic sauce of choice)</li>
+            <li>chopped cilantro or green onions for garnish</li>
+        </ul>
+        <!-- Ingredient Images -->
+        <div class="ingredient-images">
+           
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc_U_aQda-6KXhun44KXn_hk7Z4oQv7QudAg&s" alt="Chicken">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0wmZE5KI-6bWiWyGqsoTdI-UtRgWqVSebHQ&s" alt="Oil">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZHH2NrPOW8Qmi7RhcJcDLo4yvDQzleTpwkA&s" alt="Rice">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkD1ImeLAcqO1Ga4Arnpl7MvsxsXcejyfFGw&s" alt="Salt">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQpN-YmRQQor_M2hlZ8J844fFwCZWpYC0Zuw&s" alt="Spagheeti">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy0bXUy0OmwQOSdmOwqMvrPEsjOwL_nxsoMw&s" alt="caradamom">
+            
+            
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLiUjOzlIUdyx-MBP1o7d10p6B6A5lnIlhsg&s" alt="Coriander">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjjU4n5NVBZvTCurIXM_astRBJ7G7tHzob5A&s" alt="Green Chilies">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbLqpVqPZJ1D4Zu057zqUsOmnBSLVbhRXmQSjNGmt505vONJndR7Z26frR6XabsirS-OU&usqp=CAU" alt="masala">
+            
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7VlAp0GFb-vVBZh6C7l8Z-I86G4gE74UfMA&s" alt="water">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_iXmt5uTrObeXFuyggXRvVBP7Xw7BSZlH0Q&s" alt="Ginger">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdL3M8enIHiyvwXtZ90yt-QsAziUeOb4Qp3Q&s" alt="Ketchup">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB-yjMjVXqpEDqNmzd2_AlI4TfOwOkAZE0QQ&s" alt="Mayo">
+            
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQBOr-yvQHfyvmfuFQopwKRHilaQBa8XdDrQ&s" alt="corn starch">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4mzNgb_R2GuVQI-zn-qS-maI8uRWIfBHZGw&s" alt="vinegar">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiVnAcyQBNRG6CJGyoxa9BduYvE1E3HeQXiA&s" alt="Garlic">
+            
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsRlKw1wUGWEwbfgcqXjrx_9H77pVB16SUuA&s" alt="red flakes">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbY2JYTtr5QaMrS7bYNXqFPBuOWV8KI2wAdQ&s" alt="carrot">
+            
+        </div>
+    </div>
+
+    <!-- Cooking Steps Container -->
+    <div class="steps-container">
+        <h3>Cooking Steps</h3>
+        <ul>
+            <p>Marinate the Chicken</p>
+            <li><strong>Step 1:</strong>In a large bowl, add the boneless chicken, 3 tbsp soy sauce and 1 tbsp corn starch, if using. (Corn starch helps the chicken to remain soft and moist while stir frying, and helps to thicken up the sauce a bit). Mix to combine and set aside while you prepare the other layers.</li>
+            <p>Prepare the Rice, Noodles & Garlic chips </p>
+            <li><strong>Step 1:</strong>Optional, soak the rice for about 20 minutes (soaking helps prevent the rice from becoming mushy when cooked). Wash the rice a few times till the water is starting to run clear. Soak covered in water while you cook the pasta (about 15-20 minutes).
+            </li>
+            <li><strong>Step 2:</strong>In a large saucepan bring water to a boil for the pasta. Add salt and noodles and cook according to package direction till al dente (soft but still have a bit of a firm bite). Make sure to reserve about 1 cup of the boiling pasta water for later.
+            </li>
+            <li><strong>Step 3:</strong>When the pasta is done, drain and set aside. In the same saucepan heat 5 tbsp oil on medium heat. Add the 1-2 heads of thinly sliced garlic. Once the garlic just starts to turn golden brown. Remove from the heat, and remove about 3/4 of the garlic chips with a slotted spoon. Set them aside in a small bowl. Remove half the garlic flavoured oil (about 2.5 tbsp) into a separate bowl and set aside as well.</li>
+            <li><strong>Step 4:</strong>In the same pan with the remaining garlic chips and oil, take it off the heat and add a pinch of red pepper flakes and the cooked pasta in and toss to coat. Add a few splashes of pasta water to make sure the pasta doesn't stick to the bottom of the pan (I tend to use about 1/2 cup to 3/4 cup of pasta water). Stir till well coated in oil and pasta water. Cover and set aside. </li>
+            <li><strong>Step 5:</strong>Using a separate saucepan, or in a rice cooker, cook the rice. For the saucepan method: add rice and enough water to just cover the rice. Add salt to taste, 2-3 peppercorns, 1 tbsp of oil and bring to a boil. When the water has been absorbed and the rice develops small craters on the surface, turn heat to low, cover and steam 10 more minutes. Turn off the heat and let sit for another 5-10 minutes. Fluff with a fork, cover and set aside.</li>
+            <p>Prepare the Chicken & Veggie Stir-fry</p>
+            <li><strong>Step 1:</strong>In a large saucepan or wok, heat 2 tbsp oil on medium heat, add the chicken in a single layer and cook undisturbed for 1-2 minutes to get a golden brown on the bottom. Stir fry for a few more minutes till the chicken is just cooked though.</li>
+            <li><strong>Step 2: </strong>Add 1 tbsp minced ginger, 1 tbsp minced garlic, green chillies and onion to the chicken. Stir fry for 1 more minute until starting to get fragrant.</li>
+            <li><strong>Step 3: </strong>Add 1 tbsp soy sauce, 1 tbsp rice vinegar, 1/2 tsp black pepper, and 1/2 tsp red chilli powder. Stir to combine.
+            </li>
+            <li><strong>Step 4: </strong>Add shredded coleslaw veggies and sliced red pepper and stir to combine. About 1 minute.</li>
+            <li><strong>Step 5: </strong>Add 2 tbsp ketchup, 1 tsp sriracha and 2 tbsp water. Cook for additional 3-4 minutes till veggies are softened and sauce has come to a boil and is coating all the chicken. Add salt, pepper and more sriracha to taste. Turn off the heat and drizzle sesame oil over top. Mix and set aside.</li>
+            <p>Make the Spicy Garlic Mayo</p>
+            <li><strong>Step 1: </strong>In a small bowl combine 1 1/2 cup mayo with 1/2 cup ketchup and 2 to 4 Tbsp sriracha (depending on the spice level you prefer). Pour in the reserved garlic oil. Mix to combine. Taste and add more sriracha if you want a spicier mayo. Set aside.
+            </li>
+            <li><strong>Step 2: </strong>Making sure all the ingredients are warm, in a large rectangular serving dish (I like to use a rectangular approx. 8"x10" dish or larger) spread the rice in a single layer on the bottom. </li>
+            <li><strong>Step 3: </strong>Add the prepared noodles on top in a single layer.</li>
+            <li><strong>Step 4: </strong>Add the chicken mixture, including any sauce at the bottom of the pan. Reserving about 1/4 of the chicken mixture for the top.</li>
+            <li><strong>Step 5: </strong>Drizzle an even layer of the spicy garlic mayo mixture. It should cover the whole top layer. You might have a bit of leftover sauce. Serve it on the side for those that like a saucier noodle!</li>
+            <li><strong>Step 6: </strong>Add a thin layer of the remaining chicken mixture, and top with the reserved garlic chips. </li>
+            <li><strong>Step 7: </strong>Sprinkle with chopped cilantro or green onions and serve immediately. Enjoy! </li>
+            
+        </ul>
+    </div>
+</section>
+<div class="review-section">
+    <h3>Leave a Review</h3>
+    <div class="star-rating">
+        <i class="fas fa-star" data-value="1"></i>
+        <i class="fas fa-star" data-value="2"></i>
+        <i class="fas fa-star" data-value="3"></i>
+        <i class="fas fa-star" data-value="4"></i>
+        <i class="fas fa-star" data-value="5"></i>
+    </div>
+    <form class="review-form">
+        <textarea placeholder="Write your review here..." required></textarea>
+        <button type="submit">Submit Review</button>
+    </form>
+    <div class="success-message">Thank you! Your review has been submitted successfully.</div>
+</div>
+</div>
+
+<script>
+// Star rating functionality
+const stars = document.querySelectorAll('.star-rating i');
+let selectedRating = 0;
+
+stars.forEach(star => {
+    star.addEventListener('click', () => {
+        selectedRating = star.getAttribute('data-value');
+        stars.forEach(s => s.classList.remove('selected'));
+        for (let i = 0; i < selectedRating; i++) {
+            stars[i].classList.add('selected');
+        }
+    });
+});
+
+// Review form submission
+const reviewForm = document.querySelector('.review-form');
+const successMessage = document.querySelector('.success-message');
+
+reviewForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // Here you could also save the review data if needed
+    successMessage.style.display = 'block';
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+    }, 3000);
+    reviewForm.reset();
+    stars.forEach(s => s.classList.remove('selected'));
+    selectedRating = 0;
+});
+
+const phrases1 = [
+    "Delicious Dishes for Every Home",
+    "Savor the Flavor in Every Bite",
+    "From Our Kitchen to Yours",
+    "Cooking Up Joy in Every Meal",
+    "Taste the Magic of Homemade Cooking",
+    "Bringing Gourmet to Your Table",
+    "Flavorful Creations for Every Taste",
+    "Your Kitchen's Best Kept Secret",
+    "Crafting Culinary Delights at Home",
+    "Where Every Recipe Tells a Story"
+];
+
+let currentPhrase = 0;
+const textElement = document.getElementById('dynamic-text');
+
+function updateText() {
+    textElement.textContent = phrases1[currentPhrase];
+    currentPhrase = (currentPhrase + 1) % phrases1.length; // Cycle through the phrases
+}
+
+setInterval(updateText, 4000); // Change phrase every 4 seconds
+updateText(); // Initialize with the first phrase
+/*--------------*/
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // Toggle the visibility of the nav links
+});
+</script>
+</body>
+</html>
+

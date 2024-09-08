@@ -1,0 +1,563 @@
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block; /* Show the button on small devices */
+    }
+
+    .header .navbar {
+        display: none; /* Hide the navbar by default on small devices */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on the height of your header */
+        right: 10%;
+        background: #051129;
+        width: 80%;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .header .navbar.active {
+        display: flex; /* Show the navbar when it's active */
+    }
+
+    .header .navbar a {
+        margin-left: 0;
+        padding: 15px;
+        border-bottom: 1px solid #333;
+        text-align: center;
+    }
+
+    .header .navbar a:last-child {
+        border-bottom: none;
+    }
+    .home-content h3 {
+        font-size: 24px;
+    }
+
+    .home-content h1 {
+        font-size: 36px;
+    }
+
+    .home-content p {
+        font-size: 16px;
+    }
+
+    .btn-box {
+        font-size: 16px;
+    }
+
+    /* About Section */
+    .about-text h2 {
+        font-size: 36px;
+    }
+
+    .about-text h4 {
+        font-size: 18px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+    }
+
+    /* Services Section */
+    .services-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+        padding: 10px;
+    }
+
+    .project {
+        flex-direction: column;
+    }
+
+    .project-image img {
+        max-width: 100%;
+    }
+
+    /* Education Section */
+    .education-item {
+        grid-template-columns: 1fr;
+    }
+    .education-section h2 {
+        font-size: 50px; /* Adjust font size */
+        margin-left: 80px; /* Center the heading */
+        text-align: center; /* Keep it centered */
+    }
+
+    /* Experience Section */
+    .experience {
+        flex-direction: column;
+    }
+
+    .experience-content {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    /* Desk Illustration Section */
+    .desk-illustration img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .skills-section {
+        flex-direction: column; /* Stack the sections vertically */
+        gap: 40px; /* Reduce the gap between sections */
+    }
+
+    .container1 {
+        width: 90%; /* Reduce the width to fit smaller screens */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .radial-bar {
+        width: 80%; /* Increase width to occupy more space on smaller screens */
+        height: 150px;
+        margin-bottom: 20px;
+        margin-top: 20px; /* Adjust for better spacing */
+    }
+
+    .radial-bar svg {
+        width: 100px;
+        height: 140px;
+    }
+
+    .Percentage {
+        font-size: 15px; /* Adjust font size */
+    }
+
+    .projects-container {
+        flex-direction: column; /* Stack projects vertically */
+        gap: 15px; /* Adjust gap between projects */
+    }
+
+    .project {
+        flex-direction: column; /* Stack text and image vertically */
+        align-items: center;
+        padding: 15px;
+    }
+
+    .project-text, 
+    .project-image {
+        max-width: 100%;
+        text-align: center; /* Center-align text */
+    }
+
+    .project-image img {
+        max-width: 80%; /* Reduce image size */
+    }
+
+    .Portfolio h2 {
+        font-size: 50px; /* Slightly reduce heading size */
+    }
+
+    .contact-container {
+        flex-direction: column; /* Stack contact info and form vertically */
+        gap: 20px; /* Adjust gap between sections */
+        padding: 15px;
+    }
+
+    .contact-info {
+        text-align: center; /* Center-align text on smaller screens */
+    }
+
+    .contact-info h3 {
+        font-size: 35px; /* Reduce heading size */
+        margin-bottom: 15px;
+    }
+
+    .contact-details p {
+        font-size: 18px; /* Slightly reduce text size */
+    }
+
+    .social-icons {
+        justify-content: center; /* Center social icons */
+        gap: 10px;
+    }
+
+    .download-btn {
+        margin: 20px auto; /* Center the button */
+        padding: 8px 16px; /* Adjust padding */
+    }
+
+    .contact-form {
+        padding-top: 30px;
+        gap: 10px; /* Reduce gap between form elements */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 8px;
+        font-size: 14px; /* Adjust font size for better readability */
+    }
+
+    .contact-form button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    
+    .main-heading {
+        font-size: 45px; 
+        padding-top: 180px;
+        margin-bottom: 80px;
+        display: block !important; /* Forces the display */
+        visibility: visible !important; /* Forces visibility */
+        opacity: 1 !important; /* Forces full opacity */
+        position: relative; /* Avoid positioning issues */
+        z-index: 1; /* Ensures it is on top of other elements */
+    }
+}
+
+/*---------------*/
+/* Media Queries for screens 767px and below */
+@media only screen and (max-width: 767px) {
+    .menu-btn {
+        display: block; /* Show the button on small devices */
+    }
+
+    .header .navbar {
+        display: none; /* Hide the navbar by default on small devices */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on the height of your header */
+        right: 10%;
+        background: #051129;
+        width: 80%;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .header .navbar.active {
+        display: flex; /* Show the navbar when it's active */
+    }
+
+    .header .navbar a {
+        margin-left: 0;
+        padding: 15px;
+        border-bottom: 1px solid #333;
+        text-align: center;
+    }
+
+    .header .navbar a:last-child {
+        border-bottom: none;
+    }
+
+    .home-content h3 {
+        font-size: 28px;
+    }
+
+    .home-content h1 {
+        font-size: 48px;
+    }
+
+    .home-content p {
+        font-size: 18px;
+    }
+
+    .btn-box {
+        font-size: 18px; /* Adjust button text size */
+        padding: 12px 24px; /* Adjust button padding */
+    }
+
+    .about {
+        height: auto; /* Allow the section to expand based on content */
+        padding: 3rem; /* Add padding to prevent content from touching the edges */
+    }
+
+    .about-text h2 {
+        font-size: 48px; /* Adjust font size for medium-sized screens */
+    }
+
+    .about-text h4 {
+        font-size: 25px; /* Adjust font size for medium-sized screens */
+        margin: 12px 0 25px; /* Adjust margins */
+    }
+
+    .about-text p {
+        font-size: 18px; /* Adjust font size for medium-sized screens */
+        margin-bottom: 3rem; /* Adjust margin */
+    }
+
+    .education {
+        padding: 2rem; /* Adjust padding for medium screens */
+    }
+
+    .education-section {
+        max-width: 90%; /* Adjust width for medium screens */
+        margin-right: 30px; /* Adjust right margin */
+    }
+    .education-section h2 {
+        font-size: 40px; /* Further reduce font size */
+        margin-left: 0; /* Center the heading */
+        text-align: center; /* Keep it centered */
+        margin-bottom: 30px; /* Adjust margin as needed */
+    }
+    .education-item {
+        grid-template-columns: 1fr 2fr; /* Adjust column proportion */
+        padding: 15px; /* Adjust padding */
+    }
+
+    .education-item div {
+        padding: 30px; /* Adjust padding */
+        font-size: 14px; /* Increase font size */
+    }
+
+    .education-item .icon img {
+        width: 35px; /* Adjust icon size */
+        height: 35px; /* Adjust icon size */
+    }
+
+    .education-item h3 {
+        font-size: 18px; /* Maintain font size for headings */
+    }
+
+    .education-item p {
+        font-size: 15px; /* Increase font size for paragraphs */
+    }
+
+    .desk-illustration img {
+        max-width: 100%; /* Full width for medium screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .skills-section {
+        gap: 60px; /* Adjust gap for medium-sized screens */
+    }
+
+    .container1 {
+        width: 80%; /* Adjust the width */
+        padding: 15px; /* Slightly less padding */
+    }
+
+    .radial-bar {
+        width: 48%; /* Allow two radial bars side-by-side */
+        height: 160px;
+    }
+
+    .radial-bar svg {
+        width: 110px;
+        height: 150px;
+    }
+
+    .Percentage {
+        font-size: 16px; /* Slightly larger text size */
+    }
+
+    .contact-container {
+        gap: 25px; /* Moderate gap between sections */
+    }
+
+    .contact-info {
+        padding: 15px; /* Adjust padding */
+    }
+
+    .contact-info h3 {
+        font-size: 38px; /* Adjust heading size */
+    }
+
+    .social-icons {
+        gap: 12px; /* Adjust gap between social icons */
+    }
+
+    .contact-form {
+        padding-top: 40px; /* Adjust top padding */
+        gap: 12px; /* Adjust gap between form elements */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+    }
+
+    .contact-form button {
+        padding: 10px 20px;
+    }
+
+    .main-heading {
+        font-size: 40px;
+        margin-bottom: 30px;
+        display: block !important; /* Forces the display */
+        visibility: visible !important; /* Forces visibility */
+        opacity: 1 !important; /* Forces full opacity */
+        position: relative; /* Avoid positioning issues */
+        z-index: 1; /* Ensures it is on top of other elements */
+    }
+}
+
+/*------------------*/
+/* Media Queries for screens 992px and below */
+@media only screen and (max-width: 992px) {
+    .menu-btn {
+        display: block; /* Show the button on small devices */
+    }
+
+    .header .navbar {
+        display: none; /* Hide the navbar by default on medium and small devices */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on the height of your header */
+        right: 10%;
+        background: #051129;
+        width: 80%;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .header .navbar.active {
+        display: flex; /* Show the navbar when it's active */
+    }
+
+    .header .navbar a {
+        margin-left: 0;
+        padding: 15px;
+        border-bottom: 1px solid #333;
+        text-align: center;
+    }
+
+    .header .navbar a:last-child {
+        border-bottom: none;
+    }
+
+    .home-content h3 {
+        font-size: 28px; /* Adjust for medium screens */
+    }
+
+    .home-content h1 {
+        font-size: 48px; /* Adjust for medium screens */
+    }
+
+    .home-content p {
+        font-size: 18px; /* Adjust for medium screens */
+    }
+
+    .btn-box {
+        font-size: 18px; /* Adjust button text size */
+        padding: 12px 24px; /* Adjust button padding */
+    }
+
+    .about {
+        height: auto; /* Allow the section to expand based on content */
+        padding: 3rem; /* Add padding to prevent content from touching the edges */
+    }
+
+    .about-text h2 {
+        font-size: 48px; /* Adjust font size for medium screens */
+    }
+
+    .about-text h4 {
+        font-size: 25px; /* Adjust font size for medium screens */
+        margin: 12px 0 25px; /* Adjust margins */
+    }
+
+    .about-text p {
+        font-size: 18px; /* Adjust font size for medium screens */
+        margin-bottom: 3rem; /* Adjust margin */
+    }
+
+    .education {
+        padding: 2rem; /* Adjust padding for medium screens */
+    }
+
+    .education-section {
+        max-width: 90%; /* Adjust width for medium screens */
+        margin-right: 30px; /* Adjust right margin */
+    }
+
+    .education-item {
+        grid-template-columns: 1fr 2fr; /* Adjust column proportion */
+        padding: 15px; /* Adjust padding */
+    }
+    .education-section h2 {
+        font-size: 55px; /* Slightly reduce font size */
+        margin-left: 200px; /* Adjust left margin */
+        text-align: center; /* Keep the heading centered */
+    }
+    .education-item div {
+        padding: 30px; /* Adjust padding */
+        font-size: 14px; /* Increase font size */
+    }
+
+    .education-item .icon img {
+        width: 35px; /* Adjust icon size */
+        height: 35px; /* Adjust icon size */
+    }
+
+    .education-item h3 {
+        font-size: 18px; /* Maintain font size for headings */
+    }
+
+    .education-item p {
+        font-size: 15px; /* Increase font size for paragraphs */
+    }
+
+    .desk-illustration img {
+        max-width: 100%; /* Full width for medium screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .skills-section {
+        gap: 60px; /* Adjust gap for medium screens */
+    }
+
+    .container1 {
+        width: 80%; /* Adjust the width */
+        padding: 15px; /* Slightly less padding */
+    }
+
+    .radial-bar {
+        width: 48%; /* Allow two radial bars side-by-side */
+        height: 160px;
+    }
+
+    .radial-bar svg {
+        width: 110px;
+        height: 150px;
+    }
+
+    .Percentage {
+        font-size: 16px; /* Slightly larger text size */
+    }
+
+    .contact-container {
+        gap: 25px; /* Moderate gap between sections */
+    }
+
+    .contact-info {
+        padding: 15px; /* Adjust padding */
+    }
+
+    .contact-info h3 {
+        font-size: 38px; /* Adjust heading size */
+    }
+
+    .social-icons {
+        gap: 12px; /* Adjust gap between social icons */
+    }
+
+    .contact-form {
+        padding-top: 40px; /* Adjust top padding */
+        gap: 12px; /* Adjust gap between form elements */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+    }
+
+    .contact-form button {
+        padding: 10px 20px;
+    }
+
+    .main-heading {
+        font-size: 40px;
+        margin-bottom: 30px;
+        display: block !important; /* Forces the display */
+        visibility: visible !important; /* Forces visibility */
+        opacity: 1 !important; /* Forces full opacity */
+        position: relative; /* Avoid positioning issues */
+        z-index: 1; /* Ensures it is on top of other elements */
+    }
+}

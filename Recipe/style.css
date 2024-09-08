@@ -1,0 +1,640 @@
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body   {
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+}
+
+.top-bar {
+    background-color: #e4aa0a;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    padding: 10px 20px;
+    color: #f3eded;
+    font-size: 1rem;
+    position: relative;
+}
+
+#dynamic-text {
+    text-align: center;
+    font-weight: bold;
+    color: #f3eded;
+    animation: fadeInOut 4s ease-in-out infinite; /* Fade-in and out animation */
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    right: 10px; /* Position the icons on the right side */
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #f3eded;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #0d0e0f;
+}
+
+.auth-links .login,
+.auth-links .register {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.auth-links .register {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ce7c11;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links li {
+    position: relative; /* Necessary for positioning the dropdown */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color:  #ce7c11;
+}
+
+
+/* Icon Styling */
+.icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.icons .fa-heart,
+.icons .fa-search {
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.icons .fa-search {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.icons .fa-search:hover,
+.icons .fa-heart:hover {
+    color: #ce7c11;
+}
+.menu-btn {
+    display: none;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #ce7c11;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: #0b0da3;
+}
+/*---------------------------------*/
+
+.hero {
+    background: url('https://media.licdn.com/dms/image/D4D12AQEHujGYFVdLAQ/article-cover_image-shrink_720_1280/0/1680816088965?e=2147483647&v=beta&t=y-kE951-gWpM706fz7DNYmAZqap-O4QoXZ9HfepeZlQ'); /* Replace with your actual background image URL */
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hero-content h1 span {
+    color: #00a8e8; /* Highlight color */
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-box button {
+    padding: 10px;
+    background-color: #ce7c11;;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    color: white;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #0e0d5a;
+}
+
+/*------------------------------------------------*/
+.products {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.products h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    color:#ce7c11;
+}
+
+.how-it-works {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Increase or decrease this value to adjust the gap between images */
+    flex-wrap: wrap;
+    padding: 20px; /* Optional: Add padding around the whole container */
+}
+
+.step img {
+    width: 240px; /* Fixed width for all images */
+    height: 180px; /* Fixed height for all images */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+    margin: 40px; /* Optional: Add margin around each image */
+    object-fit: cover; /* Ensures images fit within the specified dimensions */
+}
+
+    /* Styles for the animated text */
+#changing-text {
+    color: #ce7c11;
+    font-weight: bold;
+    display: inline-block;
+    transition: opacity 0.5s ease-in-out; /* For smooth opacity transition */
+}
+
+.fade-out {
+    opacity: 0; /* Fully transparent */
+}
+
+.fade-in {
+    opacity: 1; /* Fully visible */
+}
+/*-----------------------------------------------*/
+.additional-images {
+    text-align: center;
+    margin: 10px 0;
+}
+/* images add for search bar below "*/
+.additional-info {
+    margin-top: 10px;
+}
+
+.additional-info p {
+    margin: 20px 0;
+}
+
+.logos {
+    display: flex;
+    justify-content: center; /* Corrected spelling */
+    align-items: center;
+    gap: 50px; /* Adjust spacing between logos */
+    margin-top: -30px;
+}
+.additional-info i.fas.fa-heart {
+    color: rgb(250, 246, 246); /* You can change the color */
+    margin-right: 8px; /* Space between the heart icon and the text */
+    font-size: 16px; /* Adjust size of the heart */
+    vertical-align: middle; /* Align icon with the text */
+}
+
+/*------------------------------------------*/
+.course-note {
+    text-align: center;
+    margin-top: -10px; /* Space above the text */
+    margin-bottom: 30px;
+}
+
+.course-note h2 {
+    font-size: 30px; /* Adjust font size */
+    margin: 0; /* Remove margin for better alignment */
+    color: #ce7c11;
+}
+/*-----------------------------------------*/
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.grid-item {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fcfcfc;
+    border: 2px solid #f0f0f0fa;
+    border-radius: 14px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.grid-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.grid-item p {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.grid-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item:nth-child(1) {
+    margin-left: 40px; /* Add left margin to the first item in each row */
+}
+.grid-item:nth-child(7) {
+    margin-left: 40px; /* Add left margin to the first item in each row */
+}
+
+/*---------------------------------------------------------------*/
+
+
+/*------------------------------------------*/
+.world-heading {
+    margin-top: 70px; /* Adjust the value as needed for the desired gap */
+    margin-bottom: 100px; /* Adjust the gap as needed */
+    text-align: center; /* Center the text above the cards */
+    font-size: 20px;
+    color: #ce7c11;
+}
+.world-heading p {
+    color: #e4aa0a;
+    font-size: 20px;
+    font-weight: bold;
+}
+/*----------------------------------------*/
+
+.card-section {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cards {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 300px; /* Fixed width for consistent layout */
+    text-align: center;
+    box-sizing: border-box;
+    flex: 1 1 calc(33.33% - 40px);
+}
+
+.cards h2 {
+    font-size: 1.5em;
+    color: #333;
+    background-color: #ce7c11;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 10px;
+}
+
+.cards p.first-paragraph {
+    font-weight: bold;
+    background-color: #ce7c11;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.cards img {
+    width: 100%; /* Adjusted width to 100% */
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensure image fits within the fixed size */
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+
+
+.cards p {
+    color: #181717;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: justify; /* Justify text to maintain consistent line breaks */
+    line-height: 1.5; /* Adjust line height for better spacing */
+}
+
+.cards button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cards button:hover {
+    background-color: #150c66;
+}
+
+
+/*----------------------------------*/
+.load-button {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin: 20px 0; /* Add spacing around the button */
+}
+
+.load-button button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.load-button button:hover {
+    background-color: #0b0da3;
+}
+/*------------------------------*/
+footer {
+    background-color: #ce7c11; /* Matching background color */
+    padding: 40px 20px;
+    margin-top: 0px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content > div {
+    flex: 1;
+    margin: 10px 100px; /* Equal margin between sections */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.footer-content h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.pages p {
+    position: relative;
+    padding-left: 20px; /* Space for the bullet */
+    font-size: 16px;
+}
+
+.pages p::before {
+    content: "\2022"; /* Unicode for bullet */
+    position: absolute;
+    left: 0;
+    color: #f5f2f2; /* Color for the bullet */
+}
+
+.contact {
+    border-radius: 8px; /* Rounded corners */
+    color: #f1f2f3; /* Text color */
+    font-family: Arial, sans-serif;
+    margin-left: auto;
+}
+
+.contact h3 {
+    color: #fff;
+}
+
+.contact p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #f1f2f3;
+}
+
+.contact p i {
+    margin-right: 10px;
+    color: #e4aa0a ;/* Icon color */
+    font-size: 20px;
+    position: relative;
+}
+
+
+
+.footer-content p, ul {
+    color: #f5f2f2;
+    text-align: justify;
+}
+
+.footer-content ul {
+    list-style-type: disc;
+    padding: 0;
+}
+
+.footer-content ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-content ul li img {
+    max-width: 50px;
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #f1f2f3;
+}
+
+.social img {
+    width: 20px;
+    margin: 0 10px;
+}
+
+.social a {
+    text-decoration: none;
+    color: #f1f2f3;
+}
+/*------------------------------------------*/
+@media (max-width: 767px) {
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    .top-bar-right {
+        position: static; /* Remove absolute positioning */
+        margin-top: 10px; /* Add some spacing on top */
+    }
+
+    .social-icons {
+        margin-bottom: 10px; /* Add spacing between social icons and auth links */
+    }
+
+    .auth-links .login,
+    .auth-links .register {
+        display: block;
+        margin: 10px 0; /* Add margin for better spacing */
+    }
+
+    .auth-links .register {
+        margin-left: 0; /* Remove left margin for better centering */
+    }
+    .menu-btn {
+        display: block; /* Show menu button on small screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links initially */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute;
+        top: 60px; /* Adjust as per your header height */
+        left: 0;
+        right: 0;
+        background-color: #ce7c11;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+        max-height: 500px; /* Adjust max-height based on content */
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-item:nth-child(2n+1) {
+        margin-left: 20px; /* Adjust left margin for the first item in each row */
+    }
+    .grid-item:nth-child(2n) {
+        margin-right: 20px; /* Adjust right margin for the last item in each row */
+    }
+    
+}

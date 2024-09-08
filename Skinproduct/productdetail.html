@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Haven Essentials</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Top Bar Styles */
+.top-bar {
+    background-color:#9F2B68;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.top-bar a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#ce498f;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 100px;
+    width: 200px;
+}
+
+.nav-right {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-right li {
+    margin: 0 15px;
+}
+
+.nav-right a {
+    color: white;
+    font-size: 14px;
+}
+
+/* Medium Bar Styles */
+.navbar, .medium-bar {
+    display: flex;
+    align-items: center;
+    background-color:#ce498f;
+    padding: 10px 20px;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.medium-bar {
+    background-color:#9F2B68;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.medium-bar li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.medium-bar li a {
+    text-decoration: none;
+    color: #f5f4f4;
+    font-weight: bold;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown container */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:#9F2B68;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* Set a high z-index to ensure it's on top */
+    min-width: 200px;
+}
+.medium-bar li:hover .dropdown-content {
+    display: block;
+}
+
+/* Style for the dropdown items */
+.dropdown-content a {
+    color: #000000;
+    background-color: #9F2B68;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color:#ce498f ;
+}
+
+/* Display dropdown on hover */
+.medium-bar li:hover .dropdown-content {
+    display: block;
+}
+
+/* Style for the product image on the right */
+
+
+/* Dropdown Menu */
+.dropdown-column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.dropdown-column h3 {
+    color:#0e0d0d;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.dropdown-column a {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #9F2B68;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.search-bar input {
+    border: none;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.search-bar button {
+    background-color: #9F2B68;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar button i {
+    color: black;
+    font-size: 16px;
+}
+
+/*---------------------------------------------------*/
+.hero-image {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDAQZSpez95O8BCR5JhroWuHYWEORuaRju0LEF8l1Z9xUGcU3zkYuW23GaE3XzEYN7k5A&usqp=CAU'); /* Replace with your actual background image URL */
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hero-text h1 span {
+    color: #00a8e8; /* Highlight color */
+}
+
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-card h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .product-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .delete-btn {
+            background:#9F2B68;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .delete-btn:hover {
+            background: #ce498f;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background: #9F2B68;
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .button:hover {
+            background:#ce498f;
+        }
+        /*-------------------------*/
+        .heading1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .heading1 h1 {
+        color: #9F2B68;
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+    /*************************************/
+    .add-to-cart-btn {
+    background: #9F2B68; /* Green background */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-to-cart-btn:hover {
+    background: #ce498f;
+}
+/*****************************/
+.cart {
+        display: none;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 300px;
+        background-color: white;
+        border-left: 10px solid; /* Adjust thickness as needed */
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        animation: borderColorChange 3s linear infinite;
+    }
+
+    @keyframes borderColorChange {
+        0% {
+            border-left-color: #9F2B68; /* Start color */
+        }
+        25% {
+            border-left-color: #c02176; /* Transition color */
+        }
+        50% {
+            border-left-color: #da3a8f; /* Midpoint color */
+        }
+        75% {
+            border-left-color: #752e54; /* Transition color */
+        }
+        100% {
+            border-left-color: #4b1331; /* End color */
+        }
+    }
+
+    .cart img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    .cart ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .cart ul li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .cart .total {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .cart-btn {
+        background-color: #ce498f;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+    }
+
+    .delete-item {
+        cursor: pointer;
+        color: #9F2B68;
+    }
+
+    .cart-toggle {
+        cursor: pointer;
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        background-color: #9F2B68;
+        color: white;
+        z-index: 1001;
+        border-radius: 5px 0 0 5px;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <p>Choose products that Supports your wellness and help  you feel GORGEOUS </p>
+        </div>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"><img src="https://glowhavenessentials.shop/cdn/shop/files/Glow_haven_Essentials_2.png?v=1713007857&width=500" alt="Glow Haven"></a> <!-- Replace with actual logo URL -->
+            </div>
+            
+            <ul class="nav-right">
+                <li><a href="#">PKR</a></li>
+                <li><a href="#">Find a Professional </a></li>
+                <li><a href="#" id="view-cart">My Cart (<span id="cart-count">0</span>)</a></li>
+                
+            </ul>
+        
+        </nav>
+    </nav>
+    <div>
+        <nav class="medium-bar">
+            <li><a href="index.html">Find my Routine</a></li>
+            <li><a href="skincare.html">Skin Care</a>
+                <div class="dropdown-content">
+                    <div>
+                        <a href="creams.html">Creams Cleanser & Lotions</a>
+                       
+                    </div>
+                    <div>
+                        <a href="Scrubs.html">Scrubs</a>
+                        <a href="moisturizing.html">Moisturizing Gel</a>
+                        <a href="Serum.html">Serum</a>
+                        <a href="vitamin.html">Vitamin C Range</a>
+                        <a href="toners.html">Toners & Tonics</a>
+                        <a href="soaps.html">Soaps</a>
+                        <a href="facemask.html">Face Masks</a>
+                        <a href="facewashes.html">Face washes</a>
+                        <a href="hairemoval.html">Hair Removal </a>
+                        <a href="antiaging.html">Anti-Aging Product</a>
+                        <a href="essential.html">Essentials & Body Oils</a>
+                    </div>
+                    
+                </div></li>
+            <li><a href="#">Hair Care</a>
+                <div class="dropdown-content">
+                    <div>
+                        <a href="naturaloils.html">Natural Oils</a>
+                       
+                    </div>
+                    <div>
+                        <a href="hairconditioner.html">Hair Conditioning Masks</a>
+                        <a href="naturalhair.html">Natural Hair Dyes</a>
+                        <a href="shampoo.html">Shampoo</a>
+                        <a href="hairgrowth.html">Hair Growth</a>
+                    </div>
+                    
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Fragrances</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Luxury Perfumes</h3>
+                        <a href="him.html">For Him</a>
+                        <a href="her.html">For Her</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Fragrances - Deals & Bundles</h3>
+                        <a href="deal.html">For Him</a>
+                        <a href="deal1.html">For Her</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Signature Perfumes</h3>
+                        <a href="perfume.html">Perfumes For Men</a>
+                        <a href="perfume1.html">Perfumes For Women</a>
+                    </div>
+                   
+                    
+                </div>
+            </li>
+            <li><a href="kit.html">Deal & Kit</a></li>
+            <li><a href="addproduct.html">Add Product</a></li>
+            <li><a href="productdetail.html">New Products</a></li>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+        
+</div>
+    </header>
+    <div class="hero-image">
+        <div class="hero-text">
+            
+            <h1>SOMETHING NEW IS ON ITS WAY</h1>
+            
+            
+        </div>
+        </div>
+   <div class="heading1">
+    <h1>Product Detail</h1>
+    
+   </div>
+    <div class="product-container" id="product-list">
+        <!-- Products will be added here -->
+        
+
+    </div>
+    <a href="index.html" class="button">Add More Products</a>
+    <div class="cart-toggle">Cart</div>
+    <div class="cart" id="cart">
+        <h2>My Cart</h2>
+        <ul id="cart-items">
+            <!-- Items will be added here -->
+        </ul>
+        <p class="total">Total: Rs. <span id="cart-total">0</span></p>
+        <button class="cart-btn" id="checkout-btn">Checkout</button>
+    </div>
+    
+
+    <script>
+        
+        function loadProducts() {
+            // Retrieve products from localStorage
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+
+            // Display products
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = ''; // Clear previous products
+
+            products.forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+
+                const img = document.createElement('img');
+                img.src = product.image || 'https://via.placeholder.com/250';
+                productCard.appendChild(img);
+
+                const name = document.createElement('h2');
+                name.textContent = product.name;
+                productCard.appendChild(name);
+
+                const price = document.createElement('p');
+                price.textContent = `Price: Rs. ${product.price}`;
+                productCard.appendChild(price);
+
+                const addToBagBtn = document.createElement('button');
+                addToBagBtn.textContent = 'Add to Bag';
+                addToBagBtn.classList.add('add-to-cart-btn');
+                addToBagBtn.addEventListener('click', () => addToCart(product));
+                productCard.appendChild(addToBagBtn);
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add('delete-btn');
+                deleteBtn.addEventListener('click', () => deleteProduct(index));
+                productCard.appendChild(deleteBtn);
+
+                productList.appendChild(productCard);
+            });
+        }
+
+        function deleteProduct(index) {
+            // Retrieve products from localStorage
+            let products = JSON.parse(localStorage.getItem('products')) || [];
+
+            // Remove the product
+            products.splice(index, 1);
+
+            // Save updated products list to localStorage
+            localStorage.setItem('products', JSON.stringify(products));
+
+            // Reload products to reflect changes
+            loadProducts();
+        }
+
+        function addToCart(product) {
+            // Retrieve cart items from localStorage
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Add the product to the cart
+            cartItems.push(product);
+
+            // Save the updated cart items to localStorage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Update the cart display
+            updateCart();
+        }
+
+        function updateCart() {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            let cartTotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+            let cartItemCount = cartItems.length;
+
+            const cartItemsList = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const cartCountElement = document.getElementById('cart-count');
+
+            cartItemsList.innerHTML = '';
+
+            cartItems.forEach((item, index) => {
+                const li = document.createElement('li');
+
+                const img = document.createElement('img');
+                img.src = item.image;
+                li.appendChild(img);
+
+                const itemInfo = document.createElement('span');
+                itemInfo.textContent = `${item.name} - Rs.${item.price}`;
+                li.appendChild(itemInfo);
+
+                const deleteBtn = document.createElement('span');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add('delete-item');
+                deleteBtn.addEventListener('click', function() {
+                    cartItems.splice(index, 1);
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Save updated cart
+                    updateCart();
+                });
+                li.appendChild(deleteBtn);
+
+                cartItemsList.appendChild(li);
+            });
+
+            cartTotalElement.textContent = cartTotal;
+            cartCountElement.textContent = cartItemCount;
+        }
+
+        // Toggle cart display
+        document.getElementById('view-cart').addEventListener('click', function() {
+            const cart = document.getElementById('cart');
+            cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.querySelector('.cart-toggle').addEventListener('click', function() {
+            const cart = document.getElementById('cart');
+            cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            window.location.href = 'checkout.html'; // Redirect to the checkout page
+        });
+
+        // Load products on page load
+        loadProducts();
+
+        // Initialize cart
+        updateCart();
+    </script>
+</body>
+</html>

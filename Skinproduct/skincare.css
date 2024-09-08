@@ -1,0 +1,272 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Top Bar Styles */
+.top-bar {
+    background-color:#9F2B68;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.top-bar a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#ce498f;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 100px;
+    width: 200px;
+}
+
+.nav-right {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-right li {
+    margin: 0 15px;
+}
+
+.nav-right a {
+    color: white;
+    font-size: 14px;
+}
+
+/* Medium Bar Styles */
+.navbar, .medium-bar {
+    display: flex;
+    align-items: center;
+    background-color:#ce498f;
+    padding: 10px 20px;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.medium-bar {
+    background-color:#9F2B68;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.medium-bar li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.medium-bar li a {
+    text-decoration: none;
+    color: #f5f4f4;
+    font-weight: bold;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown container */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:#9F2B68;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* Set a high z-index to ensure it's on top */
+    min-width: 200px;
+}
+.medium-bar li:hover .dropdown-content {
+    display: block;
+}
+
+/* Style for the dropdown items */
+.dropdown-content a {
+    color: #000000;
+    background-color: #9F2B68;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color:#ce498f ;
+}
+
+/* Display dropdown on hover */
+.medium-bar li:hover .dropdown-content {
+    display: block;
+}
+
+/* Style for the product image on the right */
+
+
+/* Dropdown Menu */
+.dropdown-column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.dropdown-column h3 {
+    color:#0e0d0d;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.dropdown-column a {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #9F2B68;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.search-bar input {
+    border: none;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.search-bar button {
+    background-color: #9F2B68;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar button i {
+    color: black;
+    font-size: 16px;
+}
+/*------------------------------------------*/
+.hero-image {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoDYbwxqHShDqrb7CRaF_dDA4Xk_qA8RvuGRkBCxbIKm80FMXn1vlF9769aMbED4Q51Yw&usqp=CAU'); /* Replace with your actual background image URL */
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.hero-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+
+.hero-text p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+/*-----------------------------------------*/
+.products-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns of equal width */
+    gap: 20px; /* Adjust the gap between the containers */
+    margin: 40px 0;
+    padding: 0 20px;
+}
+
+.product-card {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+
+
+/* Existing CSS for the "Add to Bag" button */
+.add-to-bag-button {
+    background-color: #9F2B68;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-bag-button:hover {
+    background-color: #ce498f;
+}
+
+.product-description {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 14px;
+    color: #ce498f;
+    font-weight: bold;
+}
+/*-----------------------------------*/

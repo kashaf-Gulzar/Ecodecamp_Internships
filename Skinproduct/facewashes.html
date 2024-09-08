@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Haven Essentials</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="skincare.css">
+</head>
+<style>
+    /*-----------------------------------*/
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Top Bar Styles */
+.top-bar {
+    background-color:#9F2B68;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.top-bar a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#ce498f;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 100px;
+    width: 200px;
+}
+
+.nav-right {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-right li {
+    margin: 0 15px;
+}
+
+.nav-right a {
+    color: white;
+    font-size: 14px;
+}
+
+/* Medium Bar Styles */
+.medium-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #9F2B68;
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.medium-bar li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.medium-bar a {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* Dropdown Menu */
+
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #9F2B68;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.search-bar input {
+    border: none;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.search-bar button {
+    background-color: #9F2B68;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar button i {
+    color: black;
+    font-size: 16px;
+}
+/*------------------------------------------*/
+.hero-image {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp8v8csJ4NFTDH1-15fRTs5atA6fk691UxZw&s'); /* Replace with your actual background image URL */
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.hero-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+
+.hero-text p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+/*--------------------------*/
+    .heading1 {
+    text-align: center; /* Center-aligns the text */
+    margin: 20px 0;     /* Adds some vertical margin */
+}
+
+.heading1 h1 {
+    color: #9F2B68;
+    font-size: 36px;    /* Adjust the size of the heading */
+    margin-bottom: 10px; /* Adds space below the heading */
+}
+/*------------------------------------------*/
+.cart {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    background-color: white;
+    border-left: 10px solid; /* Adjust thickness as needed */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: borderColorChange 3s linear infinite;
+}
+
+/* Keyframes for border color animation */
+@keyframes borderColorChange {
+    0% {
+        border-left-color: #9F2B68; /* Start color */
+    }
+    25% {
+        border-left-color: #c02176; /* Gold color */
+    }
+    50% {
+        border-left-color:#da3a8f; /* Deep Sky Blue color */
+    }
+    75% {
+        border-left-color: #752e54; /* Lime Green color */
+    }
+    100% {
+        border-left-color: #4b1331; /* End color */
+    }
+}
+
+
+    .cart img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    .cart ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .cart ul li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .cart .total {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .cart-btn {
+        background-color: #ce498f;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+    }
+
+    .delete-item {
+        cursor: pointer;
+        color:  #9F2B68;
+    }
+
+    .cart-toggle {
+        cursor: pointer;
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        background-color: #9F2B68;
+        color: white;
+        z-index: 1001;
+        border-radius: 5px 0 0 5px;
+    }
+    .highlight {
+    border: 2px solid #9F2B68;
+    transition: border 0.3s ease-in-out;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(159, 43, 104, 0.8); /* Corrected RGBA color */
+    padding-top: 60px;
+}
+
+    .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 20px;
+        border: 5px solid #9F2B68;
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .close {
+        color: #f1f1f1;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+<body>
+    
+    <header>
+        <div class="top-bar">
+            <p>Choose products that Supports your wellness and help  you feel GORGEOUS </p>
+        </div>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"><img src="https://glowhavenessentials.shop/cdn/shop/files/Glow_haven_Essentials_2.png?v=1713007857&width=500" alt="Glow Haven"></a> <!-- Replace with actual logo URL -->
+            </div>
+            
+            <ul class="nav-right">
+                <li><a href="#">PKR</a></li>
+                <li><a href="#">Find a Professional </a></li>
+                <li><a href="#" id="view-cart">My Cart (<span id="cart-count">0</span>)</a></li>
+                
+            </ul>
+        
+        </nav>
+    </nav>
+    <div>
+        <nav class="medium-bar">
+            <li><a href="index.html">Find my Routine</a></li>
+            <li><a href="skincare.html">Skin Care</a>
+                <div class="dropdown-content">
+                    <div>
+                        <a href="creams.html">Creams Cleanser & Lotions</a>
+                       
+                    </div>
+                    <div>
+                        <a href="Scrubs.html">Scrubs</a>
+                        <a href="moisturizing.html">Moisturizing Gel</a>
+                        <a href="Serum.html">Serum</a>
+                        <a href="vitamin.html">Vitamin C Range</a>
+                        <a href="toners.html">Toners & Tonics</a>
+                        <a href="soaps.html">Soaps</a>
+                        <a href="facemask.html">Face Masks</a>
+                        <a href="facewashes.html">Face washes</a>
+                        <a href="hairemoval.html">Hair Removal </a>
+                        <a href="antiaging.html">Anti-Aging Product</a>
+                        <a href="essential.html">Essentials & Body Oils</a>
+                    </div>
+                    
+                </div></li>
+            <li><a href="#">Hair Care</a>
+                <div class="dropdown-content">
+                    <div>
+                        <a href="naturaloils.html">Natural Oils</a>
+                       
+                    </div>
+                    <div>
+                        <a href="hairconditioner.html">Hair Conditioning Masks</a>
+                        <a href="naturalhair.html">Natural Hair Dyes</a>
+                        <a href="shampoo.html">Shampoo</a>
+                        <a href="hairgrowth.html">Hair Growth</a>
+                    </div>
+                    
+                </div>
+            </li>
+            </li>
+            <li class="dropdown">
+                <a href="#">Fragrances</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Luxury Perfumes</h3>
+                        <a href="him.html">For Him</a>
+                        <a href="her.html">For Her</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Fragrances - Deals & Bundles</h3>
+                        <a href="deal.html">For Him</a>
+                        <a href="deal1.html">For Her</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Signature Perfumes</h3>
+                        <a href="perfume.html">Perfumes For Men</a>
+                        <a href="perfume1.html">Perfumes For Women</a>
+                    </div>
+                   
+                    
+                </div>
+            </li>
+            <li><a href="kit.html">Deal & Kit</a></li>
+           
+            <li><a href="addproduct.html">Add Product</a></li>
+            <li><a href="productdetail.html">New Products</a></li>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search products...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+        
+</div>
+    </header>
+    <div class="hero-image">
+        <div class="hero-text">
+            
+            <h1>Every women should learn how to be her own skincare experts.</h1>
+            
+            
+        </div>
+        </div>
+   <div class="heading1">
+    <h1>Face Washes</h1>
+    
+   </div>
+    
+    <section class="products-section">
+       
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/4FaceWash_4d836706-fedd-4d62-a607-bd12f54ec27c_300x.jpg?v=1716462665">
+            <p class="product-description">Bundles of 4 washes at the Price of 3</p>
+            <p class="product-price">Rs.1656</p>
+            <button class="add-to-bag-button" data-name="Bundles of 4 washes at the Price of 3" data-price="1656" data-image="https://saeedghani.pk/cdn/shop/files/4FaceWash_4d836706-fedd-4d62-a607-bd12f54ec27c_300x.jpg?v=1716462665">Add to Bag</button>
+
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/products/vitamincfacewash_300x.jpg?v=1707490843">
+            <p class="product-description">Vitamin C Brightening & Anti - Aging Face Wash</p>
+            <p class="product-price">Rs.490</p>
+            <button class="add-to-bag-button" data-name="Vitamin C Brightening & Anti - Aging Face Wash" data-price="490" data-image="https://saeedghani.pk/cdn/shop/products/vitamincfacewash_300x.jpg?v=1707490843">Add to Bag</button>
+
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/ACID_1024x1024.jpg?v=1708937492">
+            <p class="product-description">Hydraulic Acid  Radiance Boosting Face Wash</p>
+            <p class="product-price">Rs.600</p>
+            <button class="add-to-bag-button" data-name="Hydraulic Acid  Radiance Boosting Face Wash" data-price="600" data-image="https://saeedghani.pk/cdn/shop/files/ACID_1024x1024.jpg?v=1708937492">Add to Bag</button>
+
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/Charcoal-Face-Wash_1024x1024.jpg?v=1707490952">
+            <p class="product-description">Activated Choracal Detox & Cleanser Face Wash</p>
+            <p class="product-price">Rs.490</p>
+            <button class="add-to-bag-button" data-name="Activated Choracal Detox & Cleanser Face Wash" data-price="490" data-image="https://saeedghani.pk/cdn/shop/files/Charcoal-Face-Wash_1024x1024.jpg?v=1707490952">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/Tea-Tree_1024x1024.jpg?v=1707742008">
+            <p class="product-description">Tea Tree & Neem Acne Control & Pimples Clear Face Wash</p>
+            <p class="product-price">Rs.490</p>
+            <button class="add-to-bag-button" data-name="Tea Tree & Neem Acne Control & Pimples Clear Face Wash" data-price="490" data-image="https://saeedghani.pk/cdn/shop/files/Tea-Tree_1024x1024.jpg?v=1707742008">Add to Bag</button>
+        </div>
+        <div class="product-card">
+            <img src="https://saeedghani.pk/cdn/shop/files/Goat-MIlk-Face-Wash-1_1024x1024.jpg?v=1708343674">
+            <p class="product-description">Goat Milk Hydrating & Anti-Aging Face Wash</p>
+            <p class="product-price">Rs.490</p>
+            <button class="add-to-bag-button" data-name="Goat Milk Hydrating & Anti-Aging Face Wash" data-price="490" data-image="https://saeedghani.pk/cdn/shop/files/Goat-MIlk-Face-Wash-1_1024x1024.jpg?v=1708343674">Add to Bag</button>
+
+        </div>
+        <div class="product-card">
+            
+            <img src="https://saeedghani.pk/cdn/shop/files/4FaceWash_f1258c09-47c1-49c8-8a90-7b63b9c00fe4_300x.jpg?v=1715930729">
+            <p class="product-description">Bundles of 4 washes at the Price of 3</p>
+            <p class="product-price">Rs.896</p>
+            <button class="add-to-bag-button" data-name="Bundles of 4 washes at the Price of 3" data-price="896" data-image="https://saeedghani.pk/cdn/shop/files/Goat-MIlk-Face-Wash-1_1024x1024.jpg?v=1708343674">Add to Bag</button>
+
+        </div>
+        <div class="product-card">
+            
+            <img src="https://saeedghani.pk/cdn/shop/products/neem-face-wash_300x.jpg?v=1619948409">
+            <p class="product-description">Neem Face Wash</p>
+            <p class="product-price">Rs.280</p>
+            <button class="add-to-bag-button" data-name="Neem Face Wash" data-price="280" data-image="https://saeedghani.pk/cdn/shop/products/neem-face-wash_300x.jpg?v=1619948409">Add to Bag</button>
+
+        </div>
+        <div class="product-card">
+            
+            <img src="https://saeedghani.pk/cdn/shop/products/ubtanfacewash_300x.jpg?v=1673262924">
+            <p class="product-description">Ubtan Face Wash</p>
+            <p class="product-price">Rs.280</p>
+            <button class="add-to-bag-button" data-name="Ubtan Face Wash" data-price="280" data-image="https://saeedghani.pk/cdn/shop/products/ubtanfacewash_300x.jpg?v=1673262924">Add to Bag</button>
+
+        </div>
+        <div class="product-card">
+            
+            <img src="https://saeedghani.pk/cdn/shop/products/SG-Square-20-min_300x.jpg?v=1673262857">
+            <p class="product-description">Alo Vera Face Wash</p>
+            <p class="product-price">Rs.280</p>
+            <button class="add-to-bag-button" data-name="Alo Vera Face Wash" data-price="280" data-image="https://saeedghani.pk/cdn/shop/products/SG-Square-20-min_300x.jpg?v=1673262857">Add to Bag</button>
+
+        </div>
+        <div class="product-card">
+            
+            <img src="https://saeedghani.pk/cdn/shop/products/Sandal-Face-Wash-60ml_300x.jpg?v=1626447036">
+            <p class="product-description">Sandal Face Wash</p>
+            <p class="product-price">Rs.280</p>
+            <button class="add-to-bag-button" data-name="Sandal Face Wash" data-price="280" data-image="https://saeedghani.pk/cdn/shop/products/Sandal-Face-Wash-60ml_300x.jpg?v=1626447036">Add to Bag</button>
+
+
+        </div>
+        
+
+        
+    
+        
+    </section>
+        
+    <div class="cart-toggle">Cart</div>
+    <div class="cart" id="cart">
+        <h2>My Cart</h2>
+        <ul id="cart-items">
+            <!-- Items will be added here -->
+        </ul>
+        <p class="total">Total: Rs.<span id="cart-total">0</span></p>
+        <button class="cart-btn" id="checkout-btn">Checkout</button>
+    </div>
+
+    <div id="productAddedModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeProductAddedModal">&times;</span>
+            <h2>Success!</h2>
+            <p>Your product has been successfully added to the cart.</p>
+        </div>
+    </div>
+    <script>
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let cartTotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+        let cartItemCount = cartItems.length;
+        
+        function updateCart() {
+            const cartItemsList = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const cartCountElement = document.getElementById('cart-count');
+        
+            cartItemsList.innerHTML = '';
+        
+            cartItems.forEach((item, index) => {
+                const li = document.createElement('li');
+        
+                const img = document.createElement('img');
+                img.src = item.image;
+                li.appendChild(img);
+        
+                const itemInfo = document.createElement('span');
+                itemInfo.textContent = `${item.name} - Rs.${item.price}`;
+                li.appendChild(itemInfo);
+        
+                const deleteBtn = document.createElement('span');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add('delete-item');
+                deleteBtn.addEventListener('click', function() {
+                    cartTotal -= item.price;
+                    cartItemCount--;
+                    cartItems.splice(index, 1);
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Save updated cart
+                    updateCart();
+                });
+                li.appendChild(deleteBtn);
+        
+                cartItemsList.appendChild(li);
+            });
+        
+            cartTotalElement.textContent = cartTotal;
+            cartCountElement.textContent = cartItemCount;
+        }
+        
+        document.querySelectorAll('.add-to-bag-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = this.getAttribute('data-name');
+                const productPrice = parseInt(this.getAttribute('data-price'));
+                const productImage = this.getAttribute('data-image');
+        
+                cartItems.push({ name: productName, price: productPrice, image: productImage });
+        
+                cartItemCount++;
+                cartTotal += productPrice;
+        
+                localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Save cart to local storage
+        
+                updateCart();
+                const productAddedModal = document.getElementById('productAddedModal');
+    productAddedModal.style.display = 'block';
+    setTimeout(() => {
+        productAddedModal.style.display = 'none';
+    }, 2000);
+
+    document.getElementById('cart').style.display = 'block';
+                document.getElementById('cart').style.display = 'block';
+            });
+        });
+        
+        document.getElementById('view-cart').addEventListener('click', function() {
+            const cart = document.getElementById('cart');
+            cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        document.querySelector('.cart-toggle').addEventListener('click', function() {
+            const cart = document.getElementById('cart');
+            cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+        });
+        const searchInput = document.getElementById('search-input');
+const searchBtn = document.getElementById('search-btn');
+const productCards = document.querySelectorAll('.product-card');
+
+// Filter products as you type
+searchInput.addEventListener('input', function() {
+    const query = searchInput.value.toLowerCase();
+    let firstMatch = null;
+
+
+    productCards.forEach(card => {
+        const description = card.querySelector('.product-description').textContent.toLowerCase();
+        const button = card.querySelector('.add-to-bag-button');
+
+        // Show matching products
+        if (description.includes(query)) {
+            card.style.display = 'block';
+            if (!firstMatch) {
+                firstMatch = button; // Save the first matching button
+            }
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
+document.getElementById('cart').style.display = 'block';
+
+// Redirect on search button click or Enter press
+searchBtn.addEventListener('click', redirectToFirstMatch);
+searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        redirectToFirstMatch();
+    }
+});
+
+function redirectToFirstMatch() {
+    const query = searchInput.value.toLowerCase();
+    for (const card of productCards) {
+        const description = card.querySelector('.product-description').textContent.toLowerCase();
+        const button = card.querySelector('.add-to-bag-button');
+
+        if (description.includes(query)) {
+            window.location.href = button.getAttribute('data-url');
+            break;
+        }
+    }
+}
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            window.location.href = 'checkout.html'; // Redirect to the checkout page
+        });
+        
+        // Initialize cart
+        updateCart();
+
+
+    </script>
+</body>
+</html>    

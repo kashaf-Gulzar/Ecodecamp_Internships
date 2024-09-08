@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouthwatering Magic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+         body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body   {
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+}
+
+.top-bar {
+    background-color: #e4aa0a;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    padding: 10px 20px;
+    color: #f3eded;
+    font-size: 1rem;
+    position: relative;
+}
+
+#dynamic-text {
+    text-align: center;
+    font-weight: bold;
+    color: #f3eded;
+    animation: fadeInOut 4s ease-in-out infinite; /* Fade-in and out animation */
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    right: 10px; /* Position the icons on the right side */
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #f3eded;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #0d0e0f;
+}
+
+.auth-links .login,
+.auth-links .register {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.auth-links .register {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ce7c11;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links li {
+    position: relative; /* Necessary for positioning the dropdown */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color:  #ce7c11;
+}
+
+/* Dropdown Menu Styling */
+.dropdown .dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%; /* Aligns below the Categories link */
+    left: 0;
+    background-color: #ce7c11;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px; /* Ensures minimum width */
+}
+
+.dropdown .dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown .dropdown-menu a {
+    display: block;
+    padding: 8px 20px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown .dropdown-menu a:hover {
+    background-color: #e4aa0a;
+    color: #fff;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block; /* Displays the dropdown when hovering over Categories */
+}
+
+/* Icon Styling */
+.icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.icons .fa-heart,
+.icons .fa-search {
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.icons .fa-search {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.icons .fa-search:hover,
+.icons .fa-heart:hover {
+    color: #ce7c11;
+}
+.menu-btn {
+    display: none;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #ce7c11;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: #0b0da3;
+}
+/*-----------------------*/
+        .videos {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+
+        .video-container {
+            position: relative;
+            width: 30%;
+            cursor: pointer;
+        }
+
+        .video-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            color:#ce7c11;
+           
+        }
+
+        .video-title {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Fullscreen modal video player */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            margin: 5% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 900px;
+            background-color: white;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+        }
+        /*--------------------*/
+        .name h2{
+           
+           font-size: 30px;
+           font-weight: bold;
+           color: #e4aa0a;
+           text-align:center;
+          
+          
+       }
+       /*---------------*/
+       .hero {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8E__c7I5Q07FSg_wCKRUxMBef9OEJ3jgCnTTkl56ko3ANT0KhuaxU2R0IE_WUirIzWH4&usqp=CAU'); /* Replace with your actual background image URL */
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+.hero-content p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-box button {
+    padding: 10px;
+    background-color: #ce7c11;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    color: white;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #0e0d5a;
+}
+/*-----------*/
+@media (max-width: 767px) {
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    .top-bar-right {
+        position: static; /* Remove absolute positioning */
+        margin-top: 10px; /* Add some spacing on top */
+    }
+
+    .social-icons {
+        margin-bottom: 10px; /* Add spacing between social icons and auth links */
+    }
+
+    .auth-links .login,
+    .auth-links .register {
+        display: block;
+        margin: 10px 0; /* Add margin for better spacing */
+    }
+
+    .auth-links .register {
+        margin-left: 0; /* Remove left margin for better centering */
+    }
+    .menu-btn {
+        display: block; /* Show menu button on small screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links initially */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute;
+        top: 60px; /* Adjust as per your header height */
+        left: 0;
+        right: 0;
+        background-color: #ce7c11;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+        max-height: 500px; /* Adjust max-height based on content */
+    }
+
+    .videos {
+        flex-direction: column; /* Stack video containers vertically */
+        align-items: center; /* Center align video containers */
+        gap: 20px; /* Reduce the gap between items */
+    }
+
+    .video-container {
+        width: 90%; /* Make the video containers take up most of the width */
+        max-width: 500px; /* Set a max-width for better appearance */
+    }
+
+    .video-title {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    .play-button {
+        font-size: 40px; /* Adjust play button size for smaller screens */
+    }
+
+    /* Fullscreen modal video player */
+    .modal-content {
+        width: 95%; /* Adjust width for smaller screens */
+        height: auto; /* Ensure height adjusts accordingly */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    iframe {
+        height: 300px; /* Adjust iframe height for smaller screens */
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <p id="dynamic-text"></p> <!-- Container for the animated text -->
+            <div class="top-bar-right">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <button class="menu-btn" aria-label="Open Menu">☰</button> <!-- Menu button for small screens -->
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="recipe.html">Recipes</a></li>
+                <li><a href="recipevedio.html">Recipe Video</a></li>
+                <li><a href="Addrecipe.html">Add Recipe</a></li>
+                <li><a href="recipedisplay.html">New Recipe</a></li>
+            </ul>
+            <div class="icons">
+                <i class="fa fa-heart"></i>
+                <i class="fa fa-search"></i>
+            </div>
+        </nav>
+        
+        
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>A Recipe is a Story that Ends with a Good Meal </h1>
+            <p>Good food is the foundation of genuine happiness</p>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search recipes...">
+                <button onclick="searchRecipes()"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="additional-info">
+                <p>Eat well, Feel well, Live well <i class="fas fa-heart"></i></p>
+                
+        </div>
+
+    </section>
+    <div class="name">
+        <H2>Best Pakistani Chef Recipe Vedio</H2>
+        <h2>Ruby Ka Kitchen Recipes</h2>
+    </div>
+<section class="videos">
+    <!-- Video Container 1 -->
+    <div class="video-container" data-video="F_86KwCMtpc" data-title="Hara Chicken Karahi">
+        <img src="https://img.youtube.com/vi/F_86KwCMtpc/hqdefault.jpg" alt="Hara Chicken Karahi">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Hara Chicken Karahi</div>
+    </div>
+    <div class="video-container" data-video="yGoJYJqvHig" data-title="Restaurant Style Boneless Chicken Karahi">
+        <img src="https://img.youtube.com/vi/yGoJYJqvHig/hqdefault.jpg" alt="Restaurant Style Boneless Chicken Karahi">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Restaurant Style Boneless Chicken Karahi</div>
+    </div>
+    <div class="video-container" data-video="q0wlrjUcY08" data-title="White Chicken Karahi">
+        <img src="https://img.youtube.com/vi/q0wlrjUcY08/hqdefault.jpg" alt="White Chicken Karahi">
+        <span class="play-button">▶️</span>
+        <div class="video-title">White Chicken Karahi</div>
+    </div>
+    
+    <div class="video-container" data-video="kchCAFEzwMY" data-title="Upgraded Baloch Karahi">
+        <img src="https://img.youtube.com/vi/kchCAFEzwMY/hqdefault.jpg" alt="Upgraded Baloch Karahi">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Upgraded Baloch Karahi</div>
+    </div>
+    
+    <div class="video-container" data-video="Vdyv8g1la8A" data-title="Tikka Karahi">
+        <img src="https://img.youtube.com/vi/Vdyv8g1la8A/hqdefault.jpg" alt="Tikka Karahi">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Tikka Karahi</div>
+    </div>
+    
+    <div class="video-container" data-video="xgOeBPv2gz8" data-title="Jalebi Homemade Mithai">
+        <img src="https://img.youtube.com/vi/xgOeBPv2gz8/hqdefault.jpg" alt="Jalebi Homemade Mithai">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Jalebi Homemade Mithai</div>
+    </div>
+    
+    <div class="video-container" data-video="6eyTzxC7j48" data-title="Gola Kabab">
+        <img src="https://img.youtube.com/vi/6eyTzxC7j48/hqdefault.jpg" alt="Gola Kabab">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Gola Kabab</div>
+    </div>
+    
+    <div class="video-container" data-video="ofedNWj43bY" data-title="Gulab Jaman">
+        <img src="https://img.youtube.com/vi/ofedNWj43bY/hqdefault.jpg" alt="Gulab Jaman">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Gulab Jaman</div>
+    </div>
+    
+    <div class="video-container" data-video="aWBYCj8W4dQ" data-title="Falooda with Homemade Saviyan">
+        <img src="https://img.youtube.com/vi/aWBYCj8W4dQ/hqdefault.jpg" alt="Falooda with Homemade Saviyan">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Falooda with Homemade Saviyan</div>
+    </div>
+    
+    <div class="video-container" data-video="ZVquHaspyQI" data-title="No oven Chicken Pizza">
+        <img src="https://img.youtube.com/vi/ZVquHaspyQI/hqdefault.jpg" alt="No oven Chicken Pizza">
+        <span class="play-button">▶️</span>
+        <div class="video-title">No oven Chicken Pizza</div>
+    </div>
+    
+    <div class="video-container" data-video="GJW6PiIiDWk" data-title="Nihari Pressure Cooker wali">
+        <img src="https://img.youtube.com/vi/GJW6PiIiDWk/hqdefault.jpg" alt="Nihari Pressure Cooker wali">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Nihari Pressure Cooker wali</div>
+    </div>
+    
+    <div class="video-container" data-video="UxGndUfy1nw" data-title="Parda Biryani">
+        <img src="https://img.youtube.com/vi/UxGndUfy1nw/hqdefault.jpg" alt="Parda Biryani">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Parda Biryani</div>
+    </div>
+    
+    <div class="video-container" data-video="6Mqv0d3RciE" data-title="KFC Style Crispy Chicken">
+        <img src="https://img.youtube.com/vi/6Mqv0d3RciE/hqdefault.jpg" alt="KFC Style Crispy Chicken">
+        <span class="play-button">▶️</span>
+        <div class="video-title">KFC Style Crispy Chicken</div>
+    </div>
+    
+    <div class="video-container" data-video="r7Bhi9xoQlw" data-title="Dawaton wale Kofty ka Salan">
+        <img src="https://img.youtube.com/vi/r7Bhi9xoQlw/hqdefault.jpg" alt="Dawaton wale Kofty ka Salan">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Dawaton wale Kofty ka Salan</div>
+    </div>
+
+
+    
+    <div class="video-container" data-video="Z3wcu-NG6Q8" data-title="Mutton Biryani">
+        <img src="https://img.youtube.com/vi/Z3wcu-NG6Q8/hqdefault.jpg" alt="Mutton Biryani">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Mutton Biryani</div>
+    </div>
+    
+    <div class="video-container" data-video="7GhjNOYXhUc" data-title="Soft Halwa Puri">
+        <img src="https://img.youtube.com/vi/7GhjNOYXhUc/hqdefault.jpg" alt="Soft Halwa Puri">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Soft Halwa Puri</div>
+    </div>
+    
+    <div class="video-container" data-video="oBLiAh0QIfk" data-title="Mutton Korma">
+        <img src="https://img.youtube.com/vi/oBLiAh0QIfk/hqdefault.jpg" alt="Mutton Korma">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Mutton Korma</div>
+    </div>
+    
+    <div class="video-container" data-video="w4XlTgpa2a8" data-title="Multani Sohan Halwa">
+        <img src="https://img.youtube.com/vi/w4XlTgpa2a8/hqdefault.jpg" alt="Multani Sohan Halwa">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Multani Sohan Halwa</div>
+    </div>
+    
+    <div class="video-container" data-video="cMmV1QT3QvM" data-title="No oven Chicken Bread">
+        <img src="https://img.youtube.com/vi/cMmV1QT3QvM/hqdefault.jpg" alt="No oven Chicken Bread">
+        <span class="play-button">▶️</span>
+        <div class="video-title">No oven Chicken Bread</div>
+    </div>
+    
+    <div class="video-container" data-video="I-y13PBnQVw" data-title="Dahi wale Baingan">
+        <img src="https://img.youtube.com/vi/I-y13PBnQVw/hqdefault.jpg" alt="Dahi wale Baingan">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Dahi wale Baingan</div>
+    </div>
+    
+    <div class="video-container" data-video="teJIhvKS3oA" data-title="Punjabi Pakora Karhi">
+        <img src="https://img.youtube.com/vi/teJIhvKS3oA/hqdefault.jpg" alt="Punjabi Pakora Karhi">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Punjabi Pakora Karhi</div>
+    </div>
+    
+    <div class="video-container" data-video="ya8yngaJCxg" data-title="No oven Tandoori Chicken Stove">
+        <img src="https://img.youtube.com/vi/ya8yngaJCxg/hqdefault.jpg" alt="No oven Tandoori Chicken Stove">
+        <span class="play-button">▶️</span>
+        <div class="video-title">No oven Tandoori Chicken Stove</div>
+    </div>
+    
+    <div class="video-container" data-video="NVQLsIDFaT0" data-title="Chicken Shawarma">
+        <img src="https://img.youtube.com/vi/NVQLsIDFaT0/hqdefault.jpg" alt="Chicken Shawarma">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Chicken Shawarma</div>
+    </div>
+    
+    <div class="video-container" data-video="QaXZEqyc2oE" data-title="Mutton Biryani Hyderabadi Style">
+        <img src="https://img.youtube.com/vi/QaXZEqyc2oE/hqdefault.jpg" alt="Mutton Biryani Hyderabadi Style">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Mutton Biryani Hyderabadi Style</div>
+    </div>
+    
+    <div class="video-container" data-video="CwByEQrq16A" data-title="Aloo Keemey Kabab">
+        <img src="https://img.youtube.com/vi/CwByEQrq16A/hqdefault.jpg" alt="Aloo Keemey Kabab">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Aloo Keemey Kabab</div>
+    </div>
+    
+    <div class="video-container" data-video="T53_FGyXALs" data-title="Chicken Pulao">
+        <img src="https://img.youtube.com/vi/T53_FGyXALs/hqdefault.jpg" alt="Chicken Pulao">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Chicken Pulao</div>
+    </div>
+    
+    <div class="video-container" data-video="q2S7pEbEim8" data-title="Chicken Haleem">
+        <img src="https://img.youtube.com/vi/q2S7pEbEim8/hqdefault.jpg" alt="Chicken Haleem">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Chicken Haleem</div>
+    </div>
+    
+    <div class="video-container" data-video="u3Twvkb23A8" data-title="Gajar Ka Halwa">
+        <img src="https://img.youtube.com/vi/u3Twvkb23A8/hqdefault.jpg" alt="Gajar Ka Halwa">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Gajar Ka Halwa</div>
+    </div>
+    
+    <div class="video-container" data-video="N0EnxvO16yo" data-title="Seekh Kabab and iftar Party Roll">
+        <img src="https://img.youtube.com/vi/N0EnxvO16yo/hqdefault.jpg" alt="Seekh Kabab and iftar Party Roll">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Seekh Kabab and iftar Party Roll</div>
+    </div>
+    
+    <div class="video-container" data-video="rIlLl_n0lRU" data-title="Afghani Ghost Bakra">
+        <img src="https://img.youtube.com/vi/rIlLl_n0lRU/hqdefault.jpg" alt="Afghani Ghost Bakra">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Afghani Ghost Bakra</div>
+    </div>
+    
+    <div class="video-container" data-video="xK0Fv_u3QqA" data-title="Fry pan Chocolate Cake">
+        <img src="https://img.youtube.com/vi/xK0Fv_u3QqA/hqdefault.jpg" alt="Fry pan Chocolate Cake">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Fry pan Chocolate Cake</div>
+    </div>
+    
+    <div class="video-container" data-video="8N_i9jGNVLg" data-title="Aloo k Kabab">
+        <img src="https://img.youtube.com/vi/8N_i9jGNVLg/hqdefault.jpg" alt="Aloo k Kabab">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Aloo k Kabab</div>
+    </div>
+    
+    <div class="video-container" data-video="eNCyarczXmk" data-title="Laccha Paratha">
+        <img src="https://img.youtube.com/vi/eNCyarczXmk/hqdefault.jpg" alt="Laccha Paratha">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Laccha Paratha</div>
+    </div>
+    
+    <div class="video-container" data-video="GImArhHyNoU" data-title="Sizzling Galouti Kabab">
+        <img src="https://img.youtube.com/vi/GImArhHyNoU/hqdefault.jpg" alt="Sizzling Galouti Kabab">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Sizzling Galouti Kabab</div>
+    </div>
+    
+    <div class="video-container" data-video="cQqx3n9PD-U" data-title="Chicken Korma">
+        <img src="https://img.youtube.com/vi/cQqx3n9PD-U/hqdefault.jpg" alt="Chicken Korma">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Chicken Korma</div>
+    </div>
+    
+    <div class="video-container" data-video="xvG0_nMJc6o" data-title="No yeast Tawa Tandoori Naan">
+        <img src="https://img.youtube.com/vi/xvG0_nMJc6o/hqdefault.jpg" alt="No yeast Tawa Tandoori Naan">
+        <span class="play-button">▶️</span>
+        <div class="video-title">No yeast Tawa Tandoori Naan</div>
+    </div>
+    
+    <div class="video-container" data-video="6z8rpLR14BU" data-title="Hyderabadi Chicken Biryani">
+        <img src="https://img.youtube.com/vi/6z8rpLR14BU/hqdefault.jpg" alt="Hyderabadi Chicken Biryani">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Hyderabadi Chicken Biryani</div>
+    </div>
+    
+    <div class="video-container" data-video="V4kUDPrOp_c" data-title="Tikka Chicken Biryani">
+        <img src="https://img.youtube.com/vi/V4kUDPrOp_c/hqdefault.jpg" alt="Tikka Chicken Biryani">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Tikka Chicken Biryani</div>
+    </div>
+    
+    <div class="video-container" data-video="v9NoYSqNmN0" data-title="Lauky k Kabab">
+        <img src="https://img.youtube.com/vi/v9NoYSqNmN0/hqdefault.jpg" alt="Lauky k Kabab">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Lauky k Kabab</div>
+    </div>
+    
+    <div class="video-container" data-video="RseRP83laEQ" data-title="Chicken ka Salan">
+        <img src="https://img.youtube.com/vi/RseRP83laEQ/hqdefault.jpg" alt="Chicken ka Salan">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Chicken ka Salan</div>
+    </div>
+    
+    <div class="video-container" data-video="yo-u2l1ereM" data-title="Egg and Aloo Biryani">
+        <img src="https://img.youtube.com/vi/yo-u2l1ereM/hqdefault.jpg" alt="Egg and Aloo Biryani">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Egg and Aloo Biryani</div>
+    </div>
+    
+    <div class="video-container" data-video="G-T9ug7NA3o" data-title="Homemade Chocolate">
+        <img src="https://img.youtube.com/vi/G-T9ug7NA3o/hqdefault.jpg" alt="Homemade Chocolate">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Homemade Chocolate</div>
+    </div>
+    
+    <div class="video-container" data-video="oTHTPLHrMJ8" data-title="Shadiyon wala Chicken Korma">
+        <img src="https://img.youtube.com/vi/oTHTPLHrMJ8/hqdefault.jpg" alt="Shadiyon wala Chicken Korma">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Shadiyon wala Chicken Korma</div>
+    </div>
+    
+    <div class="video-container" data-video="AM8cEC84vEA" data-title="Rasmalai Cake">
+        <img src="https://img.youtube.com/vi/AM8cEC84vEA/hqdefault.jpg" alt="Rasmalai Cake">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Rasmalai Cake</div>
+    </div>
+    
+    <div class="video-container" data-video="DBHC0UWfj3I" data-title="Aloo Paratha">
+        <img src="https://img.youtube.com/vi/DBHC0UWfj3I/hqdefault.jpg" alt="Aloo Paratha">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Aloo Paratha</div>
+    </div>
+    
+    <div class="video-container" data-video="A-ly0hxlHL4" data-title="Pizza Sauce Recipe and Bun Pizza">
+        <img src="https://img.youtube.com/vi/A-ly0hxlHL4/hqdefault.jpg" alt="Pizza Sauce Recipe and Bun Pizza">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Pizza Sauce Recipe and Bun Pizza</div>
+    </div>
+    
+    <div class="video-container" data-video="szeCvr1Z2So" data-title="Persian Kabab">
+        <img src="https://img.youtube.com/vi/szeCvr1Z2So/hqdefault.jpg" alt="Persian Kabab">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Persian Kabab</div>
+    </div>
+    
+    <div class="video-container" data-video="UM8Yuel4-Us" data-title="Rasmalai Recipe">
+        <img src="https://img.youtube.com/vi/UM8Yuel4-Us/hqdefault.jpg" alt="Rasmalai Recipe">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Rasmalai Recipe</div>
+    </div>
+    
+    <div class="video-container" data-video="HSpWbnjV2WQ" data-title="Jumbo Jet Mirch k Pakorey">
+        <img src="https://img.youtube.com/vi/HSpWbnjV2WQ/hqdefault.jpg" alt="Jumbo Jet Mirch k Pakorey">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Jumbo Jet Mirch k Pakorey</div>
+    </div>
+    <div class="video-container" data-video="XBFq5fPMImw" data-title="Spring Rolls">
+        <img src="https://img.youtube.com/vi/XBFq5fPMImw/hqdefault.jpg" alt="Spring Rolls">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Spring Rolls</div>
+    </div>
+    
+    <div class="video-container" data-video="MFbs7bhOtRY" data-title="Naankhatai Recipe">
+        <img src="https://img.youtube.com/vi/MFbs7bhOtRY/hqdefault.jpg" alt="Naankhatai Recipe">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Naankhatai Recipe</div>
+    </div>
+    
+    <div class="video-container" data-video="ZigRlvx8e7Y" data-title="Sandwiches">
+        <img src="https://img.youtube.com/vi/ZigRlvx8e7Y/hqdefault.jpg" alt="Sandwiches">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Sandwiches</div>
+    </div>
+    
+    <div class="video-container" data-video="7yv-x8_8ZHE" data-title="Suji ka Cake">
+        <img src="https://img.youtube.com/vi/7yv-x8_8ZHE/hqdefault.jpg" alt="Suji ka Cake">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Suji ka Cake</div>
+    </div>
+    
+    <div class="video-container" data-video="eIibtZgagQc" data-title="Chicken Handi">
+        <img src="https://img.youtube.com/vi/eIibtZgagQc/hqdefault.jpg" alt="Chicken Handi">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Chicken Handi</div>
+    </div>
+    
+    <div class="video-container" data-video="M-00eS1SVRw" data-title="Chicken Changezi">
+        <img src="https://img.youtube.com/vi/M-00eS1SVRw/hqdefault.jpg" alt="Chicken Changezi">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Chicken Changezi</div>
+    </div>
+    
+    <div class="video-container" data-video="R8918ldbhlI" data-title="Dahi Phulki">
+        <img src="https://img.youtube.com/vi/R8918ldbhlI/hqdefault.jpg" alt="Dahi Phulki">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Dahi Phulki</div>
+    </div>
+    
+    <div class="video-container" data-video="3dHAmYX-2js" data-title="Rasgulla Recipe">
+        <img src="https://img.youtube.com/vi/3dHAmYX-2js/hqdefault.jpg" alt="Rasgulla Recipe">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Rasgulla Recipe</div>
+    </div>
+    
+    <div class="video-container" data-video="NZU3fE-5zDI" data-title="Aloo ka Paratha Recipe">
+        <img src="https://img.youtube.com/vi/NZU3fE-5zDI/hqdefault.jpg" alt="Aloo ka Paratha Recipe">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Aloo ka Paratha Recipe</div>
+    </div>
+    
+    <div class="video-container" data-video="gDUaZVS1u40" data-title="Soft Laccha Paratha">
+        <img src="https://img.youtube.com/vi/gDUaZVS1u40/hqdefault.jpg" alt="Soft Laccha Paratha">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Soft Laccha Paratha</div>
+    </div>
+    
+    <div class="video-container" data-video="2xRzuKKCFPc" data-title="Mutton Yakhni Pulao">
+        <img src="https://img.youtube.com/vi/2xRzuKKCFPc/hqdefault.jpg" alt="Mutton Yakhni Pulao">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Mutton Yakhni Pulao</div>
+    </div>
+    
+    <div class="video-container" data-video="fT1twulncqE" data-title="Dawathan-e-ishq kabab">
+        <img src="https://img.youtube.com/vi/fT1twulncqE/hqdefault.jpg" alt="Dawathan-e-ishq kabab">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Dawathan-e-ishq kabab</div>
+    </div>
+    
+    <div class="video-container" data-video="m89nCnsoKhc" data-title="Club Sandwiches">
+        <img src="https://img.youtube.com/vi/m89nCnsoKhc/hqdefault.jpg" alt="Club Sandwiches">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Club Sandwiches</div>
+    </div>
+    
+    <div class="video-container" data-video="PY1-Oxm8hXU" data-title="Boondi ka Ladoo">
+        <img src="https://img.youtube.com/vi/PY1-Oxm8hXU/hqdefault.jpg" alt="Boondi ka Ladoo">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Boondi ka Ladoo</div>
+    </div>
+    
+    <div class="video-container" data-video="tEDAyGG2zTk" data-title="Panjiri Recipe">
+        <img src="https://img.youtube.com/vi/tEDAyGG2zTk/hqdefault.jpg" alt="Panjiri Recipe">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Panjiri Recipe</div>
+    </div>
+    
+    <div class="video-container" data-video="Gu9BtA0TuBk" data-title="Double Decker Andaa Paratha">
+        <img src="https://img.youtube.com/vi/Gu9BtA0TuBk/hqdefault.jpg" alt="Double Decker Andaa Paratha">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Double Decker Andaa Paratha</div>
+    </div>
+    <div class="video-container" data-video="y3o7qlQR6kk" data-title="Achari Mutton Ghost">
+        <img src="https://img.youtube.com/vi/y3o7qlQR6kk/hqdefault.jpg" alt="Achari Mutton Ghost">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Achari Mutton Ghost</div>
+    </div>
+    
+    <div class="video-container" data-video="Cn_l8tGqjIA" data-title="Mutton Handi Makta">
+        <img src="https://img.youtube.com/vi/Cn_l8tGqjIA/hqdefault.jpg" alt="Mutton Handi Makta">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Mutton Handi Makta</div>
+    </div>
+    
+    <div class="video-container" data-video="V-F22ncvNB8" data-title="Mutton Haleem">
+        <img src="https://img.youtube.com/vi/V-F22ncvNB8/hqdefault.jpg" alt="Mutton Haleem">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Mutton Haleem</div>
+    </div>
+    
+    <div class="video-container" data-video="TWnZEz2qBvU" data-title="Chicken Biryani">
+        <img src="https://img.youtube.com/vi/TWnZEz2qBvU/hqdefault.jpg" alt="Chicken Biryani">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Chicken Biryani</div>
+    </div>
+    
+    <div class="video-container" data-video="gdm9HyGkbb4" data-title="Mohanthal Gujrati Besan">
+        <img src="https://img.youtube.com/vi/gdm9HyGkbb4/hqdefault.jpg" alt="Mohanthal Gujrati Besan">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Mohanthal Gujrati Besan</div>
+    </div>
+    
+    <div class="video-container" data-video="b-eboE5GN64" data-title="Gol Gappy">
+        <img src="https://img.youtube.com/vi/b-eboE5GN64/hqdefault.jpg" alt="Gol Gappy">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Gol Gappy</div>
+    </div>
+    
+    <div class="video-container" data-video="V74kDj5-A9U" data-title="Vanilla Pineapple Cake">
+        <img src="https://img.youtube.com/vi/V74kDj5-A9U/hqdefault.jpg" alt="Vanilla Pineapple Cake">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Vanilla Pineapple Cake</div>
+    </div>
+    
+    <div class="video-container" data-video="TQtxFIlTNbc" data-title="Bombay Biryani">
+        <img src="https://img.youtube.com/vi/TQtxFIlTNbc/hqdefault.jpg" alt="Bombay Biryani">
+        <span class="play-button">▶️</span>
+        <div class="video-title">Bombay Biryani</div>
+    </div>
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+        
+</section>
+    <script>
+        // Script to handle video playback
+        const modal = document.getElementById('videoModal');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const closeButton = document.querySelector('.close-button');
+        
+        // Add click event to video containers
+        document.querySelectorAll('.video-container').forEach(container => {
+            container.addEventListener('click', () => {
+                const videoId = container.getAttribute('data-video');
+                const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                videoPlayer.src = videoUrl;
+                modal.style.display = 'block';
+            });
+        });
+
+        // Add click event to close button
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+            videoPlayer.src = ''; // Stop the video
+        });
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                videoPlayer.src = ''; // Stop the video
+            }
+        });
+        /*--------------------*/
+        
+        // script.js
+
+function searchRecipes() {
+    const searchQuery = document.getElementById('search-input').value.toLowerCase();
+    const videoContainers = document.querySelectorAll('.video-container');
+
+    videoContainers.forEach(container => {
+        const title = container.getAttribute('data-title').toLowerCase();
+        if (title.includes(searchQuery)) {
+            container.style.display = 'block'; // Show matching item
+        } else {
+            container.style.display = 'none'; // Hide non-matching item
+        }
+    });
+}
+
+// Optional: Trigger search on Enter key press
+document.getElementById('search-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        searchRecipes();
+    }
+});
+
+
+const phrases1 = [
+    "Delicious Dishes for Every Home",
+    "Savor the Flavor in Every Bite",
+    "From Our Kitchen to Yours",
+    "Cooking Up Joy in Every Meal",
+    "Taste the Magic of Homemade Cooking",
+    "Bringing Gourmet to Your Table",
+    "Flavorful Creations for Every Taste",
+    "Your Kitchen's Best Kept Secret",
+    "Crafting Culinary Delights at Home",
+    "Where Every Recipe Tells a Story"
+];
+
+let currentPhrase = 0;
+const textElement = document.getElementById('dynamic-text');
+
+function updateText() {
+    textElement.textContent = phrases1[currentPhrase];
+    currentPhrase = (currentPhrase + 1) % phrases1.length; // Cycle through the phrases
+}
+
+setInterval(updateText, 4000); // Change phrase every 4 seconds
+updateText(); // Initialize with the first phrase
+/*-------------------*/
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // Toggle the visibility of the nav links
+});
+
+    </script>
+
+</body>
+</html>

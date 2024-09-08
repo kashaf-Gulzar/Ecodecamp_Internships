@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Haven Essential</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://t4.ftcdn.net/jpg/09/10/78/29/360_F_910782958_LjcHXIpM0Eh8CSRCJD3bM3JS6KOompU0.jpg");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4hO40G30YAmbhIGfI4x4-xOYEI8OmFushJqo0X5nKL7dkQcY9beMO1geuQH_8C0wI0Wo&usqp=CAU");
+
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #9F2B68;
+            margin-bottom: 20px;
+        }
+        label {
+            color: #9F2B68;
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bolder;
+        }
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button {
+            background:#9F2B68;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #ce498f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Product</h1>
+        <form id="product-form">
+            <label for="product-name">Product Name:</label>
+            <input type="text" id="product-name" required>
+            <label for="product-price">Price:</label>
+            <input type="number" id="product-price" required>
+            <label for="product-image">Image URL:</label>
+            <input type="text" id="product-image" required>
+            <button type="button" id="add-product-btn">Add Product</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('add-product-btn').addEventListener('click', function () {
+            const name = document.getElementById('product-name').value.trim();
+            const price = document.getElementById('product-price').value.trim();
+            const image = document.getElementById('product-image').value.trim();
+            const parsedPrice = parseFloat(price);
+
+            if (isValidInput(name, parsedPrice, image)) {
+                // Retrieve existing products or initialize an empty array
+                let products = JSON.parse(localStorage.getItem('products')) || [];
+
+                // Add new product
+                products.push({ name, price: parsedPrice, image });
+
+                // Save updated products list to localStorage
+                localStorage.setItem('products', JSON.stringify(products));
+
+                // Redirect to the new page
+                window.location.href = 'productdetail.html';
+            } else {
+                alert('Please fill in all fields with valid information.');
+            }
+        });
+
+        function isValidInput(name, price, image) {
+            return name !== '' && !isNaN(price) && price > 0 && image !== '';
+        }
+    </script>
+</body>
+</html>

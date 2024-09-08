@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouthwatering Magic</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    
+    <header>
+        <div class="top-bar">
+            <p id="dynamic-text"></p> <!-- Container for the animated text -->
+            <div class="top-bar-right">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <button class="menu-btn" aria-label="Open Menu">☰</button> <!-- Menu button for small screens -->
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="recipe.html">Recipes</a></li>
+               
+                <li><a href="recipevedio.html">Recipe Video</a></li>
+                <li><a href="Addrecipe.html">Add Recipe</a></li>
+                <li><a href="recipedisplay.html">New Recipe</a></li>
+            </ul>
+            <div class="icons">
+                <i class="fa fa-heart"></i>
+                <i class="fa fa-search"></i>
+            </div>
+        </nav>
+        
+        
+    </header>
+    
+    <section>
+        <div class="content-container">
+
+        <div class="about-us">
+            <h2>About </h2>
+            <h3>Welcome to Mouthwatering Magic - A World of Culinary Delights!</h3>
+            <p>At [Mouthwatering Magic], we believe that cooking should be a joyful experience, whether you're whipping up a quick weeknight dinner or experimenting with gourmet flavors.   <strong> Our mission is to inspire your inner chef with a diverse collection of recipes that cater to all tastes and skill levels.</strong>From comforting classics to exotic dishes, each recipe is crafted with care, offering step-by-step guidance to ensure delicious results every time</p>
+           
+            <p>Dive into our extensive library of recipes, discover new favorites, and turn every meal into a memorable experience. Whether you're here to learn, explore, or simply find inspiration, we're excited to be part of your culinary journey. Happy cooking!</p>
+        </div>
+        
+       <div class="recipe-section">
+    <img src="https://www.shutterstock.com/image-photo/healthy-food-home-happy-woman-600nw-1397470610.jpg" alt="Delicious Pasta" class="recipe-image">
+    
+    
+</div>
+</div>
+
+    </section>
+    <section>
+        <div class="recipe-description">
+            <h3>What you can expect at Mouthwatering Magic:</h3>
+            <ul>
+                <li><strong>Stress-Free Cooking:</strong> Our reliable recipes are meticulously tested and written with clear instructions, detailed ingredient lists, and helpful tips and tricks, eliminating guesswork and guaranteeing successful, delicious results every time.</li>
+                <li><strong>Helpful Recipe Videos:</strong> Dive deeper into each recipe with our engaging video tutorials, where Joanne personally guides you through every step of the process, making cooking even more accessible and enjoyable.</li>
+                <li><strong>Flexibility & Customization:</strong> We understand that everyone has different dietary needs and preferences. That’s why we provide valuable substitutions for ingredients, convenient make-ahead instructions, and, whenever possible, suggestions for adapting recipes to specific diets, like vegan and gluten-free, ensuring everyone can enjoy our recipes.</li>
+            </ul>
+        </div>
+    </section>
+    <section>
+    <footer>
+        <div class="footer-content">
+            <div class="about">
+                <h3>About</h3>
+                <p>Discover delicious recipes for every occasion, from quick meals to gourmet delights. Whether you're a seasoned cook or a beginner, our diverse collection will inspire your culinary creativity. Dive in and start cooking something amazing today</p>
+            </div>
+           
+            <div class="pages">
+                <h3>Pages</h3>
+                <ul>
+                    <p>About </p>
+                    <p>Recipes</p>
+                    <P>Categories</P>
+                    <P>Blogs</P>
+                </ul>
+            </div>
+            <div class="contact">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i>Islamabad, Pakistan</p>
+                <p> <i class="fas fa-phone"></i>+92345678920</p>
+                <p> <i class="fas fa-envelope"></i> info@mouthwatering.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2024 Mouthwatering Magic | Delicious Taste</p>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    
+            </div>
+        </div>
+    </footer>
+</section>
+<script>
+    const phrases1 = [
+    "Delicious Dishes for Every Home",
+    "Savor the Flavor in Every Bite",
+    "From Our Kitchen to Yours",
+    "Cooking Up Joy in Every Meal",
+    "Taste the Magic of Homemade Cooking",
+    "Bringing Gourmet to Your Table",
+    "Flavorful Creations for Every Taste",
+    "Your Kitchen's Best Kept Secret",
+    "Crafting Culinary Delights at Home",
+    "Where Every Recipe Tells a Story"
+];
+
+let currentPhrase = 0;
+const textElement = document.getElementById('dynamic-text');
+
+function updateText() {
+    textElement.textContent = phrases1[currentPhrase];
+    currentPhrase = (currentPhrase + 1) % phrases1.length; // Cycle through the phrases
+}
+
+setInterval(updateText, 4000); // Change phrase every 4 seconds
+updateText(); // Initialize with the first phrase
+/*--------------------*/
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // Toggle the visibility of the nav links
+});
+</script>
+</body>
+</html>

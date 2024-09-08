@@ -1,0 +1,649 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Top Bar Styles */
+.top-bar {
+    background-color:#9F2B68;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.top-bar a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#ce498f;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 100px;
+    width: 200px;
+}
+
+.nav-right {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-right li {
+    margin: 0 15px;
+}
+
+.nav-right a {
+    color: white;
+    font-size: 14px;
+}
+
+/* Medium Bar Styles */
+.navbar, .medium-bar {
+    display: flex;
+    align-items: center;
+    background-color:#ce498f;
+    padding: 10px 20px;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.medium-bar {
+    background-color:#9F2B68;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.medium-bar li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.medium-bar li a {
+    text-decoration: none;
+    color: #f5f4f4;
+    font-weight: bold;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown container */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:#9F2B68;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* Set a high z-index to ensure it's on top */
+    min-width: 200px;
+}
+.medium-bar li:hover .dropdown-content {
+    display: block;
+}
+
+/* Style for the dropdown items */
+.dropdown-content a {
+    color: #000000;
+    background-color: #9F2B68;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color:#ce498f ;
+}
+
+/* Display dropdown on hover */
+.medium-bar li:hover .dropdown-content {
+    display: block;
+}
+
+/* Style for the product image on the right */
+
+
+/* Dropdown Menu */
+.dropdown-column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.dropdown-column h3 {
+    color:#0e0d0d;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.dropdown-column a {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #9F2B68;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.search-bar input {
+    border: none;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.search-bar button {
+    background-color: #9F2B68;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar button i {
+    color: black;
+    font-size: 16px;
+}
+
+/*---------------------------------------------------*/
+.hero {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-B92NGqoILoUbAo2VlVkJ0X5QH3IQV1aFSg&s'); /* Replace with your actual background image URL */
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hero-content h1 span {
+    color: #00a8e8; /* Highlight color */
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-box button {
+    padding: 10px;
+    background-color: #ff5ba5;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    color: white;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #0e0d5a;
+}
+/*----------------------------------------------------*/
+.products-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+    padding: 0 20px;
+}
+
+.product-card {
+    flex: 1;
+    text-align: center;
+    margin: 0 10px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+
+}
+
+.add-to-bag {
+    background-color: #fff;
+    border: 1px solid #9F2B68;
+    color: #9F2B68;;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.add-to-bag:hover {
+    background-color:#9F2B68;
+    color: #fff;
+}
+
+.product-description {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+
+
+/*----------------------------*/
+.heading {
+    text-align: center; /* Center-aligns the text */
+    margin: 20px 0;     /* Adds some vertical margin */
+}
+
+.heading h1 {
+    color: #9F2B68;
+    font-size: 36px;    /* Adjust the size of the heading */
+    margin-bottom: 10px; /* Adds space below the heading */
+}
+
+.heading p {
+    font-size: 20px;    /* Adjust the size of the paragraph */
+    color:#ce498f;        /* Optional: Change the color of the paragraph text */
+    font-weight: bold;
+}
+/*----------------------------------*/
+.steps-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #9F2B68;
+}
+
+.section-description {
+    font-size: 20px;
+    color: #ce498f;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Gap between the step items */
+}
+
+.step-item {
+    text-align: center;
+    max-width: 250px;
+    flex: 1;
+}
+
+.step-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    
+}
+
+
+
+.step-item p {
+    font-size: 14px;
+    color: #9F2B68;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.shop-now {
+    background-color:#9F2B68;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.shop-now:hover {
+    background-color:#ce498f;
+}
+
+/*-----------------------------------------------------*/
+.heading1 {
+    text-align: center; /* Center-aligns the text */
+    margin: 20px 0;     /* Adds some vertical margin */
+}
+
+.heading1 h1 {
+    color: #9F2B68;
+    font-size: 36px;    /* Adjust the size of the heading */
+    margin-bottom: 10px; /* Adds space below the heading */
+}
+.review {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+.reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.header .rating {
+    font-size: 20px;
+    color:#ce498f;
+}
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.review-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+.review-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.review-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.review-card p {
+    font-size: 14px;
+    color: #000000;
+    margin-bottom: 10px;
+    
+}
+.review-card .stars {
+    color:#ce498f;
+    margin-bottom: 10px;
+}
+.review-card .date {
+    font-size: 12px;
+    color: #000000;
+    font-weight: bold;
+}
+.write-review-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:#9F2B68;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+/*--------------------------------------------*/
+.features-section {
+    text-align: center;
+    margin: 40px 0;
+}
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.feature-item {
+    text-align: center;
+}
+.feature-item img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+.feature-item p {
+    font-size: 16px;
+    color: #555;
+}
+/*-----------------------------------------*/
+.promo {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYHzY2ZPsJmtCaoGqubAOJDmgHJcXtVxbF97sngTgDCBSJfwd2nQMyWeAQMLMUfnPwaiQ&usqp=CAU'); /* Replace with your actual background image URL */
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+}
+
+.promo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.promo-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.promo-content h1 {
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/*-----------------------------------------------------------*/
+.heroes-section {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    padding: 20px; /* Add some padding around the section */
+    background-color: #f8f9fa; /* Optional: Add a background color for the section */
+}
+
+.heroes {
+    max-width: 100%; /* Ensure the image does not exceed the width of its container */
+}
+
+.heroes img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 8px; /* Optional: Add rounded corners to the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow to the image */
+}
+
+
+/*-----------------------------------------------------*/
+footer {
+    background-color: #9F2B68; /* Matching background color */
+    padding: 40px 10px;
+    margin-top: 0px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content > div {
+    flex: 1;
+    margin: 10px 100px; /* Equal margin between sections */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.footer-content h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.pages p {
+   
+    position: relative;
+    padding-left: 20px; /* Space for the bullet */
+    font-size: 16px;
+}
+
+.pages p::before {
+    content: "\2022"; /* Unicode for bullet */
+    position: absolute;
+    left: 0;
+    color: #f5f2f2; /* Color for the bullet */
+}
+
+.contact {
+    border-radius: 8px; /* Rounded corners */
+    color: #f1f2f3; /* Text color */
+    font-family: Arial, sans-serif;
+    margin-left: auto;
+    
+}
+
+.contact h3 {
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.contact p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #f1f2f3;
+}
+
+.contact p i {
+    margin-right: 10px;
+    color:#ce498f ;/* Icon color */
+    font-size: 20px;
+    position: relative;
+}
+
+
+
+.footer-content p, ul {
+    color: #f5f2f2;
+    text-align: justify;
+}
+
+.footer-content ul {
+    list-style-type: disc;
+    padding: 0;
+}
+
+.footer-content ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-content ul li img {
+    max-width: 50px;
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #f1f2f3;
+}
+
+.social img {
+    width: 20px;
+    margin: 0 10px;
+}
+
+.social a {
+    text-decoration: none;
+    color: #f1f2f3;
+}
+
