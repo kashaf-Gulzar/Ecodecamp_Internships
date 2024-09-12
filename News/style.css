@@ -1,0 +1,639 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    color: #333;
+    padding: 20px;
+}
+.menu-btn {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 50px;
+    background-color: #1e73be;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 45px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 15px;
+    padding: 0 10px;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+
+nav ul li:hover {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    letter-spacing: 1px;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar track{
+    background-color: transparent;
+    padding: 2px;
+}
+::-webkit-scrollbar-thumb{
+    background-color:#1e73be;
+    border-radius: 100px;
+}
+.top-headlines .right .topnews::-webkit-scrollbar{
+    width:6px
+}
+.top-headlines .right .topnews::-webkit-scrollbar-thumb{
+   background-color: #000000;
+}
+
+.top-headlines{
+    padding: 100px 50px 50px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+}
+.top-headlines .left{
+    padding: 10px 30px;
+  
+}
+.top-headlines .left > .tilte{
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+}
+.top-headlines .left .img{
+   width:100%;
+   height: 400px;
+   background-color: #a04;
+}
+.top-headlines .left .text{
+    padding: 20px 15px 10px;
+ }
+ .top-headlines .left .text .title h2{
+    font-size: 20px;
+    letter-spacing: 1px;
+    display: inline;
+    cursor: pointer;
+ }
+ .top-headlines .left .text .title h2:hover{
+   text-decoration: underline;
+ }
+ .top-headlines .left .text .description{
+    font-size: 15px;
+    margin-top: 10px;
+    color: #020202;
+    letter-spacing: 1px;
+  }
+  .top-headlines .right{
+padding: 10px;
+width: 1005;
+height: 500px;
+color: #020202;
+text-align: justify;
+font-weight: bold;
+  }
+  .top-headlines .right >.title{
+   font-size: 20px;
+ 
+   text-align: center;
+   padding: 15px;
+   font-weight: bold;
+      }
+  
+
+.top-headlines .right .topnews{
+        padding: 7px;
+        height: 85%;
+        border: 5px solid  #1e73be;
+border-radius: 4px;
+align-items: center;
+overflow: scroll;
+
+        
+    }
+    .top-headlines .right .topnews .news{
+     display: grid;
+     grid-template-columns: auto auto;
+     align-items: center;
+     margin-bottom: 20px;
+}
+ .top-headlines .right .topnews .news .img{
+    width: 170px;
+    height: 120px;
+    background-color: #a04;
+ }
+ .top-headlines .right .topnews .news .text {
+    margin-inline: 10px;
+    
+ }
+ .top-headlines .right .topnews .news .text .tilte{
+   
+    cursor: pointer;
+    
+ }
+ .top-headlines .right .topnews .news .text .tilte:hover{
+text-decoration: underline;
+    
+ }
+    /* Breaking News Image */
+.top-headlines .left .img {
+    width: 100%;
+    height: 400px;
+    background-image: url('https://www.thenews.com.pk/assets/uploads/akhbar/2024-09-11/1229201_2176209_Imran-khan-9_akhbar.jpg'); /* Replace with your breaking news image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Top Headlines - Individual News Images */
+.top-headlines .right .topnews .news:nth-child(1) .img {
+    background-image: url('https://www.thenews.com.pk/assets/uploads/updates/2024-09-11/1229198_4748951_6_updates.jpg'); /* Replace with your first headline image */
+    background-size: cover;
+    background-position: center;
+}
+
+.top-headlines .right .topnews .news:nth-child(2) .img {
+    background-image: url('https://www.thenews.com.pk/assets/uploads/updates/2024-09-11/1229350_668133_Shehbaz-hamza-2_updates.jpg'); /* Replace with your second headline image */
+    background-size: cover;
+    background-position: center;
+}
+
+.top-headlines .right .topnews .news:nth-child(3) .img {
+    background-image: url('https://www.thenews.com.pk/assets/uploads/updates/2024-09-11/l_1229324_030926_updates.jpg'); /* Replace with your third headline image */
+    background-size: cover;
+    background-position: center;
+}
+
+.top-headlines .right .topnews .news:nth-child(4) .img {
+    background-image: url('https://www.thenews.com.pk/assets/uploads/updates/2024-09-11/1229249_5480506_jinnah_updates.jpg'); /* Replace with your fourth headline image */
+    background-size: cover;
+    background-position: center;
+}
+
+.top-headlines .right .topnews .news:nth-child(5) .img {
+    background-image: url('https://www.thenews.com.pk/assets/uploads/akhbar/2024-09-11/1229212_3818997_Pension_akhbar.jpg'); /* Replace with your fifth headline image */
+    background-size: cover;
+    background-position: center;
+}
+
+.top-headlines .right .topnews .news:nth-child(6) .img {
+    background-image: url('https://www.thenews.com.pk/assets/uploads/akhbar/2024-09-11/1229294_5878778_Pakistan_akhbar.jpg'); /* Replace with your sixth headline image */
+    background-size: cover;
+    background-position: center;
+}
+.top-headlines .right .topnews .news:nth-child(7) .img {
+    background-image: url('https://www.thenews.com.pk/assets/uploads/updates/2024-09-11/l_1229335_034645_updates.jpg'); /* Replace with your sixth headline image */
+    background-size: cover;
+    background-position: center;
+}
+.top-headlines .right .topnews .news:nth-child(8) .img {
+    background-image: url('https://www.thenews.com.pk/assets/uploads/akhbar/2024-09-11/s_1229200_052307_updates.jpg'); /* Replace with your sixth headline image */
+    background-size: cover;
+    background-position: center;
+}
+.top-headlines .right .topnews .news:nth-child(9) .img {
+    background-image: url('https://www.thenews.com.pk/assets/uploads/updates/2024-09-11/1229298_1850040_parliament_updates.jpg'); /* Replace with your sixth headline image */
+    background-size: cover;
+    background-position: center;
+}
+ 
+/*-------------------*/
+.sports-news {
+    padding: 20px;
+}
+.sports-news h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.news-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.news-card h3 {
+    font-size: 12px;
+    color: #888;
+    margin: 5px 0;
+}
+
+.news-card h4 {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #000;
+}
+
+.news-card p {
+    font-size: 12px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.large-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+}
+
+.large-card {
+    flex: 1 1 calc(33.33% - 20px); /* Three large cards side by side */
+    box-sizing: border-box;
+}
+
+.small-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.small-card {
+    display: flex; /* Align image and text side by side */
+    flex: 1 1 calc(33.33% - 10px); /* Adjust width for smaller cards */
+    box-sizing: border-box;
+    max-width: calc(33.33% - 10px); /* Ensure they don't grow beyond the desired width */
+    background: #fff;
+    border: 1px solid #101ee4;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.news-card img {
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.large-card img {
+    height: 200px;
+}
+
+.small-card img {
+    width: 120px;
+    height: 100%;
+    border-radius: 8px 0 0 8px;
+    object-fit: cover;
+}
+
+.text-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-content h3 {
+    font-size: 12px;
+    color: #888;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.text-content h4 {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #000;
+    text-align: justify;
+}
+
+.text-content p {
+    font-size: 12px;
+    color: #555;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.view-all button {
+    padding: 10px 20px;
+    background-color:#1e73be;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.view-all button:hover {
+    background-color: #000;
+}
+
+/*----------------------------------*/
+.bussiness-news {
+    padding: 20px;
+}
+.bussiness-news h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #000;
+}
+.editorial-news {
+    padding: 20px;
+}
+.editorial-news h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #000;
+}
+.articles-news {
+    padding: 20px;
+}
+.articles-news h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #000;
+}
+/*---------------*/
+.footer {
+    background-color: #1e73be;
+    color: white;
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    font-size: 14px;
+}
+
+.footer h4 {
+    color:white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #f39c12;
+}
+
+.footer .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #ccc;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #f39c12;
+}
+
+.newsletter input[type="email"] {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.newsletter input[type="text"] {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.newsletter button {
+    padding: 12px;
+    background-color:white;
+    color: #1e73be;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.newsletter button:hover {
+   
+    color: white;
+    background-color:#1e73be;
+}
+
+@media (max-width: 767px) {
+    .menu-btn {
+        display: block; /* Show the menu button */
+    }
+
+    nav {
+        display: none; /* Hide the navigation menu initially */
+    }
+
+    /* When the menu is active, show the navigation */
+    nav.active {
+        display: block;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        right: 0;
+        background-color: #1e73be;
+        width: 100%;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        border: none;
+    }
+    .top-headlines {
+        padding: 30px 10px;
+        grid-template-columns: 1fr;
+    }
+
+    .top-headlines .left .img {
+        height: 250px;
+    }
+
+    .top-headlines .right {
+        padding: 5px;
+        height: auto;
+        overflow: visible;
+    }
+
+    .top-headlines .right .topnews {
+        height: auto;
+        overflow: visible; /* Allows all items to be shown without scrolling */
+        border: none;
+        padding: 0;
+    }
+
+    .top-headlines .right .topnews .news {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .top-headlines .right .topnews .news .img {
+        width: 100%;
+        height: 180px;
+        margin-bottom: 10px;
+    }
+    .large-cards {
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .large-card {
+        flex: 1 1 100%; /* Stack large cards on top of each other */
+    }
+
+    .small-cards {
+        flex-direction: column; /* Stack small cards vertically */
+        gap: 10px;
+    }
+
+    .small-card {
+        flex: 1 1 100%; /* Full width for small cards */
+        max-width: 100%;
+    }
+
+    .small-card img {
+        width: 80px; /* Further reduce image width for mobile */
+        height: auto;
+    }
+
+    .text-content h4 {
+        font-size: 13px; /* Slightly smaller font size for titles */
+    }
+
+    .view-all button {
+        font-size: 14px; /* Adjust button font size */
+        padding: 8px 16px;
+    }
+
+    
+}
+@media (max-width: 992px) {
+    .top-headlines {
+        padding: 50px 20px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .top-headlines .left .img {
+        height: 300px;
+    }
+
+    .top-headlines .right {
+        height: auto; /* Adjust height for responsive design */
+        padding: 10px;
+        border: none;
+    }
+
+    .top-headlines .right .topnews {
+        height: auto; /* Adjust height for content to fit naturally */
+        overflow: auto; /* Allows content to scroll if needed */
+        border: none;
+    }
+
+    .top-headlines .right .topnews .news {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .top-headlines .right .topnews .news .img {
+        width: 140px;
+        height: 100px;
+    }
+
+    .large-cards {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .large-card {
+        flex: 1 1 100%; /* Make large cards stack vertically */
+    }
+
+    .small-cards {
+        gap: 15px;
+    }
+
+    .small-card {
+        flex: 1 1 calc(50% - 10px); /* Adjust small cards to display two in a row */
+        max-width: calc(50% - 10px);
+    }
+
+    .small-card img {
+        width: 100px; /* Adjust image width for smaller screens */
+        height: auto;
+    }
+}
+
+
+

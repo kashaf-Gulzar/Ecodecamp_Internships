@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    color: #333;
+    padding: 20px;
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 50px;
+    background-color: #1e73be;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.menu-btn {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    margin-left: auto;
+}
+.logo {
+    font-size: 45px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 15px;
+    padding: 0 10px;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+
+nav ul li:hover {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.highlights1 {
+  
+            padding: 80px 50px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .highlights1 h2 {
+            padding-top: 40px;
+            font-size: 36px;
+            color: #1e73be;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .highlights1 h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color:#000;
+            margin: 10px auto 0;
+        }
+
+        .highlight1-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .highlight1-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .highlight1-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight1-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .highlight1-item h3 {
+            font-size: 24px;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        .highlight1-item p {
+            padding: 0 15px;
+            font-size: 16px;
+            color: #666;
+        }
+
+       
+
+        /* Highlights Section */
+        .highlights {
+            padding: 80px 50px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .highlights h2 {
+            font-size: 36px;
+            color: #1e73be;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .highlights h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color:#000;
+            margin: 10px auto 0;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .highlight-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .highlight-item h3 {
+            font-size: 24px;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        .highlight-item p {
+            padding: 0 15px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Sports News Section */
+        .news {
+            padding: 80px 50px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .news h2 {
+            font-size: 36px;
+            color: #1e73be;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .news h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color:#000;
+            margin: 10px auto 0;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .news-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-item img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .news-item h3 {
+            font-size: 22px;
+            color: #333;
+            margin: 15px 0;
+            padding: 0 15px;
+        }
+
+        .news-item p {
+            padding: 0 15px 15px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .footer {
+    background-color: #1e73be;
+    color: white;
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    font-size: 14px;
+}
+
+.footer h4 {
+    color:white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #f39c12;
+}
+
+.footer .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #ccc;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #f39c12;
+}
+
+.newsletter input[type="email"] {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.newsletter input[type="text"] {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.newsletter button {
+    padding: 12px;
+    background-color:white;
+    color: #1e73be;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.newsletter button:hover {
+   
+    color: white;
+    background-color:#1e73be;
+}
+
+@media (max-width: 767px) {
+    .menu-btn {
+        display: block; /* Show the menu button */
+    }
+
+    nav {
+        display: none; /* Hide the navigation menu initially */
+    }
+
+    /* When the menu is active, show the navigation */
+    nav.active {
+        display: block;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        right: 0;
+        background-color: #1e73be;
+        width: 100%;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        border: none;
+    }
+    .highlight1-grid,
+    .highlight-grid,
+    .news-grid {
+        grid-template-columns: 1fr; /* Single column for mobile devices */
+        gap: 15px;
+    }
+
+    .highlights1,
+    .highlights,
+    .news {
+        padding: 40px 20px; /* Reduce padding on smaller screens */
+    }
+
+    .highlight1-item h3,
+    .highlight-item h3,
+    .news-item h3 {
+        font-size: 18px; /* Adjust font size for better readability */
+        margin: 10px 0;
+    }
+
+    .highlight1-item img,
+    .highlight-item img,
+    .news-item img {
+        height: 150px; /* Reduce image height for mobile */
+    }
+}
+
+@media (max-width: 992px) {
+    .highlight1-grid,
+    .highlight-grid,
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for larger tablets */
+        gap: 20px;
+    }
+
+    .highlight1-item h3,
+    .highlight-item h3,
+    .news-item h3 {
+        font-size: 20px; /* Slightly smaller text */
+    }
+}
+        
+    </style>
+</head>
+<body>
+
+   
+    <div class="header">
+        <div class="logo">
+            News
+        </div>
+        <button class="menu-btn" aria-label="Open Menu">☰</button> <!-- Menu Button -->
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sports.html">Sports</a></li>
+                <li><a href="bussiness.html">Business</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="technology.html">Technology</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="highlights1">
+        <h2>Sports</h2>
+        <div class="highlight1-grid">
+            <div class="highlight1-item">
+                <img src="https://thefrontierpost.com/wp-content/uploads/2024/09/Mohisn-Naqvi-696x398-1-375x195.webp" alt="Highlight 1">
+                <h3>PCB Chairman meets with Champions Cup team mentors
+                </h3>
+            </div>
+            <div class="highlight-item">
+                <img src="https://thefrontierpost.com/wp-content/uploads/2024/09/Pakistan-South-Korea-draw-Asian-Hockey-Champions-Trophy.jpg" alt="Highlight 2">
+                <h3>South Korea hold Pakistan for a draw in Asian Hockey Champions Trophy
+                </h3>
+            </div>
+            <div class="highlight-item">
+                <img src="https://thefrontierpost.com/wp-content/uploads/2024/09/suleman-696x522-1.jpeg" alt="Highlight 3">
+                <h3>Affan Salman bags World Youth Scrabble C’ship title
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights">
+        <h2>Sports Highlights</h2>
+        <div class="highlight-grid">
+            <div class="highlight-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVNsYe0k7xM_b7RW1XwG1XyJJVrjoRQvLGZg&s" alt="Highlight 1">
+                <h3>Football League Finals</h3>
+                <p>The most exciting moments from the final match of the football league.</p>
+            </div>
+            <div class="highlight-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8OxGehelUytDmMHVW84o9pizLGz6Kjw6NNQ&s" alt="Highlight 2">
+                <h3>Basketball Championship</h3>
+                <p>Relive the action from the thrilling basketball championship game.</p>
+            </div>
+            <div class="highlight-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEHvqXILDLYqXuBleuS2WpxdDlqj9JOc8ZJA&s" alt="Highlight 3">
+                <h3>Olympic Swimming</h3>
+                <p>Watch the fastest swimmers from the Olympic games break new records.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports News Section -->
+    <section class="news">
+        <h2>Latest Sports News</h2>
+        <div class="news-grid">
+            <div class="news-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTppssFxJfFEkhYqSXVG3WyzwzOhC2xzOJog&s" alt="News 1">
+                <h3>World Cup Qualifiers</h3>
+                <p>Find out which teams have qualified for the World Cup 2024.</p>
+            </div>
+            <div class="news-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMVMUc1vW5ER4tq5wcH1mzWEirAExakusWqw&s" alt="News 2">
+                <h3>NBA Player Trades</h3>
+                <p>Latest updates on NBA player trades and team changes.</p>
+            </div>
+            <div class="news-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlLS8IJaVA6Edz6wqfdclLHJwdw8dCOggB7Q&s" alt="News 3">
+                <h3>Formula 1 Racing</h3>
+                <p>Get insights on the upcoming Formula 1 races and standings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-column">
+            <h4>About Us</h4>
+            <p>Your source for the latest in technology and science. Stay informed with the most up-to-date news on tech trends, gadgets, and more.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">Sports</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Connect with Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h4>Newsletter</h4>
+            <div class="newsletter">
+                <input type="email" placeholder="Enter your email">
+                <input type="text" placeholder="Enter your message">
+                <button>Send</button>
+            </div>
+        </div>
+
+        
+    </footer>
+    <script>
+        // Toggle the navigation menu on button click
+        document.querySelector('.menu-btn').addEventListener('click', function () {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active'); // Toggle the 'active' class to show/hide the menu
+        });
+    </script>
+</body>
+</html>
